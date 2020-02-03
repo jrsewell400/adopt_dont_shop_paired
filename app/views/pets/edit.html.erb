@@ -1,0 +1,12 @@
+<h1>Edit Me!!!! =D</h1>
+<form action="/pets/<%= @pet.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Edit</p>
+  <input type='text' name='name' value="<%= @pet.name %>"/><br/>
+  <textarea name='describe'><%= @pet.description %></textarea><br/>
+  <textarea name='age'><%= @pet.age %></textarea><br/>
+  <textarea name='sex'><%= @pet.sex %></textarea><br/>
+  <textarea name='adopted'><%= @pet.adopted %></textarea><br/>
+  <input type='submit' name='submitter'/>
+</form>

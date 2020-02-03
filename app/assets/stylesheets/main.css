@@ -1,0 +1,22 @@
+h1 {
+  background-color: darkred;
+  text-align: center;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+  font-family: arial;
+}
+
+h6 {
+  text-align: right;
+  background-color: grey;
+}
+
+h4 {
+    text-align: center;
+}
+
+body {
+  background-color: grey;
+}

@@ -1,0 +1,15 @@
+<h1> <%= @shelter.name %> </h1>
+  <ul>
+    <li><%= @shelter.address %></li>
+    <li><%= @shelter.city %></li>
+    <li><%= @shelter.state %></li>
+    <li><%= @shelter.zip %></li>
+  </ul>
+
+  <a href="/shelters/<%= @shelter.id %>/pets">Pets</a><br/>
+  <a href="/shelters/<%= @shelter.id %>/pets/new">New Pet</a><br/>
+  <a href="/shelters/<%= @shelter.id %>/edit">Edit This Shelter</a>
+  <br/>
+  <%= link_to 'Return To Shelters Index Page', '/shelters' %>
+  <br/>
+  <%= button_to 'Delete', "/shelters/#{@shelter.id}", method: :delete %>
