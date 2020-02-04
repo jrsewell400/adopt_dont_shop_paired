@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "pets index page", type: :feature do
-
   it "shows all pets in the database" do
     shelter_1 = Shelter.create(name:       "Maxxxx Shelter",
                                address:       "1042 N Marion St",

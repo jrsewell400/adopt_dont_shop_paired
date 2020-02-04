@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 RSpec.describe "shelter show page", type: :feature do
   it "can update shelters" do
     shelter_1 = Shelter.create!(name:       "Anotha Shelta",
