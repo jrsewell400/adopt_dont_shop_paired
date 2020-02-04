@@ -17,7 +17,8 @@ RSpec.describe "individual shelter pages", type: :feature do
                           title: "Good Shelter",
                           rating: 5,
                           content: "Fantastic staff and cleanily area for animals.",
-                          picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg"
+                          picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg",
+                          shelter_id: shelter_1.id
                           )
   visit "/shelters"
   have_current_path "/shelters"
@@ -29,18 +30,5 @@ RSpec.describe "individual shelter pages", type: :feature do
   have_current_path "/shelters"
   expect(page).to have_content('My Other Shelter')
   expect(page).to_not have_content('This is a Shelter')
-  # save_and_open_page
   end
 end
-
-
-
-# User Story 6, Shelter Delete
-#
-# As a visitor
-# When I visit a shelter show page
-# Then I see a link to delete the shelter
-# When I click the link "Delete Shelter"
-# Then a 'DELETE' request is sent to '/shelters/:id',
-# the shelter is deleted,
-# and I am redirected to the shelter index page where I no longer see this shelter
