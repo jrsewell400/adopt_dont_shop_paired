@@ -13,7 +13,8 @@ RSpec.describe "create pets", type: :feature do
                            title: "Good Shelter",
                            rating: 5,
                            content: "Fantastic staff and cleanily area for animals.",
-                           picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg"
+                           picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg",
+                           shelter_id: shelter_1.id
                            )
       visit "/shelters/#{shelter_1.id}"
       click_link "New Pet"
