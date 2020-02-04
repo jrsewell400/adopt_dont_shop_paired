@@ -12,7 +12,8 @@
         <li>Review: <%= @review.rating %></li>
        <li><%= image_tag(@review.picture, size: "200x200")%></li>
         </ul> </p1>
-
+        
+  <%= link_to 'Create New Review', "/shelters/#{@shelter.id}/new"%>
   <a href="/shelters/<%= @shelter.id %>/pets">Pets</a><br/>
   <a href="/shelters/<%= @shelter.id %>/pets/new">New Pet</a><br/>
   <a href="/shelters/<%= @shelter.id %>/edit">Edit This Shelter</a>
@@ -20,3 +21,4 @@
   <%= link_to 'Return To Shelters Index Page', '/shelters' %>
   <br/>
   <%= button_to 'Delete', "/shelters/#{@shelter.id}", method: :delete %>
+  
