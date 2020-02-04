@@ -6,6 +6,13 @@
     <li><%= @shelter.zip %></li>
   </ul>
 
+  <p1> <ul>
+        <li>Title: <%= @review.title %></li>
+        <li>Content: <%= @review.content %></li>
+        <li>Review: <%= @review.rating %></li>
+       <li><%= image_tag(@review.picture, size: "200x200")%></li>
+        </ul> </p1>
+
   <a href="/shelters/<%= @shelter.id %>/pets">Pets</a><br/>
   <a href="/shelters/<%= @shelter.id %>/pets/new">New Pet</a><br/>
   <a href="/shelters/<%= @shelter.id %>/edit">Edit This Shelter</a>
