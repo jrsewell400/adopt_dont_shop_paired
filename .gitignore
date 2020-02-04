@@ -19,4 +19,9 @@
 .byebug_history
 
 /coverage.data
-/coverage/
+/coverage
+
+*.json
+!spec/*.json
+
+.DS_Store
