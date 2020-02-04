@@ -12,7 +12,8 @@ RSpec.describe "shelter show page", type: :feature do
                         title: "Good Shelter",
                         rating: 5,
                         content: "Fantastic staff and cleanily area for animals.",
-                        picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg"
+                        picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg",
+                        shelter_id: shelter_1.id
                         )
 
   visit '/shelters'
@@ -36,22 +37,3 @@ RSpec.describe "shelter show page", type: :feature do
   expect(page).to have_content('Edited Shelter Zip')
   end
 end
-
-
-# User Story 5, Shelter Update
-#
-# As a visitor
-# When I visit a shelter show page
-# Then I see a link to update the shelter "Update Shelter"
-# When I click the link "Update Shelter"
-# Then I am taken to '/shelters/:id/edit' where I  see a form to edit the shelter's data including:
-# - name
-# - address
-# - city
-# - state
-# - zip
-# When I fill out the form with updated information
-# And I click the button to submit the form
-# Then a `PATCH` request is sent to '/shelters/:id',
-# the shelter's info is updated,
-# and I am redirected to the Shelter's Show page where I see the shelter's updated info
