@@ -23,5 +23,7 @@
 
 *.json
 !spec/*.json
+/coverage/.last_run.json
+/coverage/.resultset.json
 
 .DS_Store
