@@ -3,7 +3,8 @@
 <% @pets.each do |pet| %>
 <a href=<%="/pets/#{pet.id}"%>
 <br/>
-    <p1><%= image_tag(pet.image) %><br/>
+    <p1><%= image_tag(pet.image, size: "200x200")%>
+      <br/>
       <br/>
         <br/>
         <%= pet.name %><br/><a/>

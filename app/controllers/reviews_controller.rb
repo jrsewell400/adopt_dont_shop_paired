@@ -11,10 +11,9 @@ class ReviewsController < ApplicationController
     review = shelter.reviews.create(strong_params)
 
     if review.save
-      flash[:notice] = "Review submitted. Thank you for your review."
       redirect_to "/shelters/#{params[:id]}"
     else
-      flash[:alert] = "Need to fill in a Title, Rating, and Content in order to submit a Shelter Review."
+      flash[:notice] = "Need to fill in a Title, Rating, and Content in order to submit a Shelter Review."
       render :new
     end
   end

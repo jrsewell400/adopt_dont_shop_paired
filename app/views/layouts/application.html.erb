@@ -13,6 +13,9 @@
       <a href='/pets'> Pets Index</a>
       <a href='/shelters'> Shelters Index</a></h6>
 
+      <% flash.each do |flash, msg| %>
+      <%= msg %>
+      <% end %>
     <%= yield %>
   </body>
 </html>
