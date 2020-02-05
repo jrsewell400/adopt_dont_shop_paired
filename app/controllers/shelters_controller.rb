@@ -11,7 +11,7 @@ class SheltersController < ApplicationController
   end
 
   def show
-    @review = Review.first
+    @reviews = Review.all
     @shelter = Shelter.find(params[:id])
   end
 

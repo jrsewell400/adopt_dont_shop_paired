@@ -19,4 +19,12 @@
 .byebug_history
 
 /coverage.data
-/coverage/
+/coverage
+
+*.json
+!spec/*.json
+/coverage/.last_run.json
+/coverage/.resultset.json
+
+/index.html
+.DS_Store
