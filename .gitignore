@@ -26,4 +26,5 @@
 /coverage/.last_run.json
 /coverage/.resultset.json
 
+/index.html
 .DS_Store
