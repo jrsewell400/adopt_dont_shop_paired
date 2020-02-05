@@ -40,7 +40,9 @@ RSpec.describe "As a visitor", type: :feature do
       expect(page).to have_content("Best shelter ever!")
       expect(page).to have_content('5')
       expect(page).to have_content('Staff was friendly and they take great care of the pets!')
-      expect(page).to have_content('https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C-760x506.jpg')
+      expect(page).to have_content('Good Shelter')
+      expect(page).to have_content('Fantastic staff and cleanily area for animals.')
+      # expect(page).to have_content("#{review1.picture}") #figure out later
     end
   end
 end
