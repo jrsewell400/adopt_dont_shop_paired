@@ -11,7 +11,8 @@ RSpec.describe "shelter show page", type: :feature do
                             title: "Good Shelter",
                             rating: 5,
                             content: "Fantastic staff and cleanily area for animals.",
-                            picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg"
+                            picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg",
+                            shelter_id: shelter_1.id
                             )
 
   visit '/shelters'
@@ -31,12 +32,3 @@ RSpec.describe "shelter show page", type: :feature do
   expect(page).to have_content('Edited Shelter Zip')
   end
 end
-
-
-# User Story 13, Shelter Update From Shelter Index Page
-#
-# As a visitor
-# When I visit the shelter index page
-# Next to every shelter, I see a link to edit that shelter's info
-# When I click the link
-# I should be taken to that shelters edit page where I can update its information just like in User Story 5
