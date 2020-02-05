@@ -9,12 +9,14 @@
   <p1>
   <h2>See reviews below:</h2>
   <% @reviews.each do |review| %>
+  <% if review.shelter_id == @shelter.id %>
     <ul>
         <li>Title: <%= review.title %></li>
         <li>Content: <%= review.content %></li>
         <li>Review: <%= review.rating %></li>
         <li><%= image_tag(review.picture, size: "200x200")%></li>
     </ul>
+    <% end %>
   <% end %>
   </p1>
 
