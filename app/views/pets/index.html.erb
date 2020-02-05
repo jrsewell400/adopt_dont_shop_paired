@@ -1,6 +1,7 @@
 
 <h1>Pets</h1>
 <% @pets.each do |pet| %>
+<section id="pet-<%= pet.id %>"><br/>
 <a href=<%="/pets/#{pet.id}"%>
 <br/>
     <p1><%= image_tag(pet.image, size: "200x200")%>
@@ -15,6 +16,6 @@
         <a href="/pets/<%= pet.id %>/edit">Update Pet</a>
         <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
   <p1/>
-
+</section>
 <br/>
 <% end %>

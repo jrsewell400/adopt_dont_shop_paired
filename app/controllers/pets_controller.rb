@@ -10,12 +10,13 @@ class PetsController < ApplicationController
   end
 
   def create
+    # require "pry"; binding.pry
     shelter = Shelter.first
     pet = shelter.pets.create(strong_params)
 
     pet.save
 
-    redirect_to '/shelters/1/pets'
+    redirect_to '/shelters/#{pet.id}/pets'
   end
 
   def show

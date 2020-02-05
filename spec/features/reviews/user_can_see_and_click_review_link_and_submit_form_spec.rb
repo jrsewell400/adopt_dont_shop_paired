@@ -18,13 +18,6 @@ RSpec.describe "As a visitor", type: :feature do
                         shelter_id: shelter_1.id
                         )
 
-      # review2 = Review.create(
-      #                   title: "Stuff Place",
-      #                   rating: 1,
-      #                   content: "Terrible staff and awfully messy area for animals.",
-      #                   shelter_id: shelter_1.id
-      #                   )
-
       visit "/shelters/#{shelter_1.id}"
 
       click_link "Create New Review"
@@ -40,7 +33,7 @@ RSpec.describe "As a visitor", type: :feature do
       fill_in 'content', with: 'Staff was friendly and they take great care of the pets!'
       fill_in 'picture', with: 'https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C-760x506.jpg'
 
-      click_on("Create New Review")
+      click_on("Submit Review")
 
       have_current_path "/shelters/#{shelter_1.id}"
       expect(page).to have_content("Best shelter ever!")
@@ -48,10 +41,7 @@ RSpec.describe "As a visitor", type: :feature do
       expect(page).to have_content('Staff was friendly and they take great care of the pets!')
       expect(page).to have_content('Good Shelter')
       expect(page).to have_content('Fantastic staff and cleanily area for animals.')
-      # expect(page).to have_content('Stuff Place')
-      # expect(page).to have_content('1')
-      # expect(page).to have_content('Terrible staff and awfully messy area for animals.')
-      # expect(page).to have_content("#{review1.picture}") #figure out later
+      expect(page).to have_css("img[src*='#{review1.picture}']")
     end
   end
 end
