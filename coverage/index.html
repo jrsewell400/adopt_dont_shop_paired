@@ -14,7 +14,7 @@
       <img src="./assets/0.11.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-02-05T10:40:47-07:00">2020-02-05T10:40:47-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-02-05T15:03:40-07:00">2020-02-05T15:03:40-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>476</b> relevant lines,
-    <span class="green"><b>472</b> lines covered</span> and
+    <b>477</b> relevant lines,
+    <span class="green"><b>473</b> lines covered</span> and
     <span class="red"><b>4</b> lines missed. </span>
     (<span class="green">
   99.16%
@@ -83,7 +83,7 @@
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#582f03bb6c5050bbc875563daedb0f917c61dcbf" class="src_link" title="app/controllers/pets_controller.rb">app/controllers/pets_controller.rb</a></td>
           <td class="yellow strong t-file__coverage">84.62 %</td>
-          <td>48</td>
+          <td>49</td>
           <td>26</td>
           <td>22</td>
           <td>4</td>
@@ -94,7 +94,7 @@
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#ee3bf34d98c61a3df13d6db884efc4716d8d4f23" class="src_link" title="app/controllers/reviews_controller.rb">app/controllers/reviews_controller.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
-          <td>33</td>
+          <td>32</td>
           <td>16</td>
           <td>16</td>
           <td>0</td>
@@ -347,7 +347,7 @@
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#44947a6e79fb49dad44fe751032d5a3d9834cf74" class="src_link" title="spec/features/pets/user_can_create_new_pets_spec.rb">spec/features/pets/user_can_create_new_pets_spec.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
-          <td>54</td>
+          <td>55</td>
           <td>18</td>
           <td>18</td>
           <td>0</td>
@@ -391,7 +391,7 @@
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#d9b321581ed8061759e2ecab0fb3821b3b37e1a4" class="src_link" title="spec/features/pets/user_can_see_all_pets_spec.rb">spec/features/pets/user_can_see_all_pets_spec.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
-          <td>39</td>
+          <td>40</td>
           <td>12</td>
           <td>12</td>
           <td>0</td>
@@ -413,7 +413,7 @@
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#456b668b1162c60497094ab56cfd4c93580f0924" class="src_link" title="spec/features/reviews/review_flash_messages_spec.rb">spec/features/reviews/review_flash_messages_spec.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
-          <td>37</td>
+          <td>36</td>
           <td>19</td>
           <td>19</td>
           <td>0</td>
@@ -424,9 +424,9 @@
         <tr class="t-file">
           <td class="strong t-file__name"><a href="#4d46f02d88f4e239870ee1962655e26b1b671860" class="src_link" title="spec/features/reviews/user_can_see_and_click_review_link_and_submit_form_spec.rb">spec/features/reviews/user_can_see_and_click_review_link_and_submit_form_spec.rb</a></td>
           <td class="green strong t-file__coverage">100.0 %</td>
-          <td>57</td>
-          <td>25</td>
-          <td>25</td>
+          <td>49</td>
+          <td>26</td>
+          <td>26</td>
           <td>0</td>
           <td>1.0</td>
           
@@ -803,13 +803,13 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="13">
+          <li class="never" data-hits="" data-linenumber="13">
             
             
 
             
 
-            <code class="ruby">    shelter = Shelter.first</code>
+            <code class="ruby">    # require &quot;pry&quot;; binding.pry</code>
           </li>
         </div>
       
@@ -820,12 +820,23 @@
 
             
 
+            <code class="ruby">    shelter = Shelter.first</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="15">
+            
+            
+
+            
+
             <code class="ruby">    pet = shelter.pets.create(strong_params)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="15">
+          <li class="never" data-hits="" data-linenumber="16">
             
             
 
@@ -836,7 +847,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="16">
+          <li class="missed" data-hits="0" data-linenumber="17">
             
             
 
@@ -847,7 +858,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="17">
+          <li class="never" data-hits="" data-linenumber="18">
             
             
 
@@ -858,24 +869,13 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="18">
+          <li class="missed" data-hits="0" data-linenumber="19">
             
             
 
             
 
-            <code class="ruby">    redirect_to &#39;/shelters/1/pets&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
+            <code class="ruby">    redirect_to &#39;/shelters/#{pet.id}/pets&#39;</code>
           </li>
         </div>
       
@@ -886,12 +886,23 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="21">
+          <li class="covered" data-hits="1" data-linenumber="22">
             <span class="hits">1</span>
             
 
@@ -902,7 +913,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="6" data-linenumber="22">
+          <li class="covered" data-hits="6" data-linenumber="23">
             <span class="hits">6</span>
             
 
@@ -913,7 +924,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="23">
+          <li class="never" data-hits="" data-linenumber="24">
             
             
 
@@ -924,7 +935,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
+          <li class="never" data-hits="" data-linenumber="25">
             
             
 
@@ -935,7 +946,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="25">
+          <li class="covered" data-hits="1" data-linenumber="26">
             <span class="hits">1</span>
             
 
@@ -946,7 +957,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="26">
+          <li class="covered" data-hits="2" data-linenumber="27">
             <span class="hits">2</span>
             
 
@@ -957,7 +968,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="27">
+          <li class="never" data-hits="" data-linenumber="28">
             
             
 
@@ -968,7 +979,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="28">
+          <li class="never" data-hits="" data-linenumber="29">
             
             
 
@@ -979,7 +990,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="29">
+          <li class="covered" data-hits="1" data-linenumber="30">
             <span class="hits">1</span>
             
 
@@ -990,7 +1001,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="30">
+          <li class="covered" data-hits="2" data-linenumber="31">
             <span class="hits">2</span>
             
 
@@ -1001,7 +1012,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="31">
+          <li class="covered" data-hits="2" data-linenumber="32">
             <span class="hits">2</span>
             
 
@@ -1012,7 +1023,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="33">
             
             
 
@@ -1023,7 +1034,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="33">
+          <li class="covered" data-hits="2" data-linenumber="34">
             <span class="hits">2</span>
             
 
@@ -1034,7 +1045,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
@@ -1045,7 +1056,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="35">
+          <li class="covered" data-hits="2" data-linenumber="36">
             <span class="hits">2</span>
             
 
@@ -1056,7 +1067,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="36">
+          <li class="never" data-hits="" data-linenumber="37">
             
             
 
@@ -1067,7 +1078,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="38">
             
             
 
@@ -1078,7 +1089,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="38">
+          <li class="covered" data-hits="1" data-linenumber="39">
             <span class="hits">1</span>
             
 
@@ -1089,7 +1100,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="39">
+          <li class="covered" data-hits="2" data-linenumber="40">
             <span class="hits">2</span>
             
 
@@ -1100,7 +1111,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="40">
+          <li class="covered" data-hits="2" data-linenumber="41">
             <span class="hits">2</span>
             
 
@@ -1111,7 +1122,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="41">
+          <li class="never" data-hits="" data-linenumber="42">
             
             
 
@@ -1122,24 +1133,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="42">
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="43">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  private</code>
           </li>
         </div>
       
@@ -1150,12 +1150,23 @@
 
             
 
+            <code class="ruby">  private</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">  def strong_params</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
@@ -1166,7 +1177,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="46">
+          <li class="covered" data-hits="2" data-linenumber="47">
             <span class="hits">2</span>
             
 
@@ -1177,7 +1188,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="47">
+          <li class="never" data-hits="" data-linenumber="48">
             
             
 
@@ -1188,7 +1199,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="48">
+          <li class="never" data-hits="" data-linenumber="49">
             
             
 
@@ -1401,23 +1412,12 @@
 
             
 
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="17">
-            
-            
-
-            
-
             <code class="ruby">    else</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="18">
+          <li class="covered" data-hits="1" data-linenumber="17">
             <span class="hits">1</span>
             
 
@@ -1428,7 +1428,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="19">
+          <li class="covered" data-hits="1" data-linenumber="18">
             <span class="hits">1</span>
             
 
@@ -1439,7 +1439,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="20">
+          <li class="never" data-hits="" data-linenumber="19">
             
             
 
@@ -1450,7 +1450,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 
@@ -1461,7 +1461,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="never" data-hits="" data-linenumber="21">
             
             
 
@@ -1472,7 +1472,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="23">
+          <li class="covered" data-hits="1" data-linenumber="22">
             <span class="hits">1</span>
             
 
@@ -1483,13 +1483,24 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
+          <li class="never" data-hits="" data-linenumber="23">
             
             
 
             
 
             <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="24">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1500,23 +1511,12 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
+          <li class="covered" data-hits="1" data-linenumber="26">
             <span class="hits">1</span>
             
 
@@ -1527,7 +1527,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
+          <li class="covered" data-hits="1" data-linenumber="27">
             <span class="hits">1</span>
             
 
@@ -1538,7 +1538,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
+          <li class="never" data-hits="" data-linenumber="28">
             
             
 
@@ -1549,7 +1549,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="30">
+          <li class="covered" data-hits="3" data-linenumber="29">
             <span class="hits">3</span>
             
 
@@ -1560,7 +1560,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
+          <li class="never" data-hits="" data-linenumber="30">
             
             
 
@@ -1571,7 +1571,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="32">
+          <li class="never" data-hits="" data-linenumber="31">
             
             
 
@@ -1582,7 +1582,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="32">
             
             
 
@@ -6255,13 +6255,13 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="19">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="19">
+            
             
 
             
 
-            <code class="ruby">      visit &quot;/shelters/#{shelter_1.id}&quot;</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6272,29 +6272,29 @@
 
             
 
+            <code class="ruby">      visit &quot;/shelters/#{shelter_1.id}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="21">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">      click_link &quot;New Pet&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="22">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      expect(page).to have_content(&quot;Name&quot;)</code>
           </li>
         </div>
       
@@ -6305,7 +6305,7 @@
 
             
 
-            <code class="ruby">      expect(page).to have_content(&quot;Image&quot;)</code>
+            <code class="ruby">      expect(page).to have_content(&quot;Name&quot;)</code>
           </li>
         </div>
       
@@ -6316,7 +6316,7 @@
 
             
 
-            <code class="ruby">      expect(page).to have_content(&quot;Description&quot;)</code>
+            <code class="ruby">      expect(page).to have_content(&quot;Image&quot;)</code>
           </li>
         </div>
       
@@ -6327,7 +6327,7 @@
 
             
 
-            <code class="ruby">      expect(page).to have_content(&quot;Age&quot;)</code>
+            <code class="ruby">      expect(page).to have_content(&quot;Description&quot;)</code>
           </li>
         </div>
       
@@ -6338,7 +6338,7 @@
 
             
 
-            <code class="ruby">      expect(page).to have_content(&quot;Sex&quot;)</code>
+            <code class="ruby">      expect(page).to have_content(&quot;Age&quot;)</code>
           </li>
         </div>
       
@@ -6349,7 +6349,7 @@
 
             
 
-            <code class="ruby">      fill_in &#39;name&#39;, with: &#39;Lilly&#39;</code>
+            <code class="ruby">      expect(page).to have_content(&quot;Sex&quot;)</code>
           </li>
         </div>
       
@@ -6360,7 +6360,7 @@
 
             
 
-            <code class="ruby">      fill_in &#39;age&#39;, with: &#39;6&#39;</code>
+            <code class="ruby">      fill_in &#39;name&#39;, with: &#39;Lilly&#39;</code>
           </li>
         </div>
       
@@ -6371,7 +6371,7 @@
 
             
 
-            <code class="ruby">      fill_in &#39;description&#39;, with: &#39;Black and beautiful&#39;</code>
+            <code class="ruby">      fill_in &#39;age&#39;, with: &#39;6&#39;</code>
           </li>
         </div>
       
@@ -6382,7 +6382,7 @@
 
             
 
-            <code class="ruby">      fill_in &#39;image&#39;, with: &#39;pets/lab.jpg&#39;</code>
+            <code class="ruby">      fill_in &#39;description&#39;, with: &#39;Black and beautiful&#39;</code>
           </li>
         </div>
       
@@ -6393,7 +6393,7 @@
 
             
 
-            <code class="ruby">      fill_in &#39;age&#39;, with: &#39;6&#39;</code>
+            <code class="ruby">      fill_in &#39;image&#39;, with: &#39;pets/lab.jpg&#39;</code>
           </li>
         </div>
       
@@ -6404,18 +6404,18 @@
 
             
 
-            <code class="ruby">      fill_in &#39;sex&#39;, with: &#39;Female&#39;</code>
+            <code class="ruby">      fill_in &#39;age&#39;, with: &#39;6&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="33">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      # click_on(&quot;Create Pet&quot;)</code>
+            
+
+            <code class="ruby">      fill_in &#39;sex&#39;, with: &#39;Female&#39;</code>
           </li>
         </div>
       
@@ -6426,7 +6426,7 @@
 
             
 
-            <code class="ruby">      # have_current_path &quot;/shelters/#{shelter_1.id}&quot;</code>
+            <code class="ruby">      # click_on(&quot;Create Pet&quot;)</code>
           </li>
         </div>
       
@@ -6437,7 +6437,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      # have_current_path &quot;/shelters/#{shelter_1.id}&quot;</code>
           </li>
         </div>
       
@@ -6448,7 +6448,7 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -6459,7 +6459,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -6481,7 +6481,7 @@
 
             
 
-            <code class="ruby"># As a visitor</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -6492,7 +6492,7 @@
 
             
 
-            <code class="ruby"># When I visit a Shelter Pets Index page</code>
+            <code class="ruby"># As a visitor</code>
           </li>
         </div>
       
@@ -6503,7 +6503,7 @@
 
             
 
-            <code class="ruby"># Then I see a link to add a new adoptable pet for that shelter &quot;Create Pet&quot;</code>
+            <code class="ruby"># When I visit a Shelter Pets Index page</code>
           </li>
         </div>
       
@@ -6514,7 +6514,7 @@
 
             
 
-            <code class="ruby"># When I click the link</code>
+            <code class="ruby"># Then I see a link to add a new adoptable pet for that shelter &quot;Create Pet&quot;</code>
           </li>
         </div>
       
@@ -6525,7 +6525,7 @@
 
             
 
-            <code class="ruby"># I am taken to &#39;/shelters/:shelter_id/pets/new&#39; where I see a form to add a new adoptable pet</code>
+            <code class="ruby"># When I click the link</code>
           </li>
         </div>
       
@@ -6536,7 +6536,7 @@
 
             
 
-            <code class="ruby"># When I fill in the form with the pet&#39;s:</code>
+            <code class="ruby"># I am taken to &#39;/shelters/:shelter_id/pets/new&#39; where I see a form to add a new adoptable pet</code>
           </li>
         </div>
       
@@ -6547,7 +6547,7 @@
 
             
 
-            <code class="ruby"># - image</code>
+            <code class="ruby"># When I fill in the form with the pet&#39;s:</code>
           </li>
         </div>
       
@@ -6558,7 +6558,7 @@
 
             
 
-            <code class="ruby"># - name</code>
+            <code class="ruby"># - image</code>
           </li>
         </div>
       
@@ -6569,7 +6569,7 @@
 
             
 
-            <code class="ruby"># - description</code>
+            <code class="ruby"># - name</code>
           </li>
         </div>
       
@@ -6580,7 +6580,7 @@
 
             
 
-            <code class="ruby"># - approximate age</code>
+            <code class="ruby"># - description</code>
           </li>
         </div>
       
@@ -6591,7 +6591,7 @@
 
             
 
-            <code class="ruby"># - sex (&#39;female&#39; or &#39;male&#39;)</code>
+            <code class="ruby"># - approximate age</code>
           </li>
         </div>
       
@@ -6602,7 +6602,7 @@
 
             
 
-            <code class="ruby"># And I click the button &quot;Create Pet&quot;</code>
+            <code class="ruby"># - sex (&#39;female&#39; or &#39;male&#39;)</code>
           </li>
         </div>
       
@@ -6613,7 +6613,7 @@
 
             
 
-            <code class="ruby"># Then a `POST` request is sent to &#39;/shelters/:shelter_id/pets&#39;,</code>
+            <code class="ruby"># And I click the button &quot;Create Pet&quot;</code>
           </li>
         </div>
       
@@ -6624,7 +6624,7 @@
 
             
 
-            <code class="ruby"># a new pet is created for that shelter,</code>
+            <code class="ruby"># Then a `POST` request is sent to &#39;/shelters/:shelter_id/pets&#39;,</code>
           </li>
         </div>
       
@@ -6635,12 +6635,23 @@
 
             
 
-            <code class="ruby"># that pet has a status of &#39;adoptable&#39;,</code>
+            <code class="ruby"># a new pet is created for that shelter,</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby"># that pet has a status of &#39;adoptable&#39;,</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="55">
             
             
 
@@ -8541,18 +8552,18 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(&#39;Pets&#39;)</code>
+            <code class="ruby">    within &quot;#pet-#{lilly.id}&quot; do</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="22">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="22">
+            
             
 
             
 
-            <code class="ruby">    expect(page).to have_content(&#39;Lilly&#39;)</code>
+            <code class="ruby">      # expect(page).to have_content(&#39;Pets&#39;)</code>
           </li>
         </div>
       
@@ -8563,7 +8574,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(&#39;4&#39;)</code>
+            <code class="ruby">      expect(page).to have_content(&#39;Lilly&#39;)</code>
           </li>
         </div>
       
@@ -8574,7 +8585,7 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(&#39;Female&#39;)</code>
+            <code class="ruby">      expect(page).to have_content(&#39;4&#39;)</code>
           </li>
         </div>
       
@@ -8585,18 +8596,18 @@
 
             
 
-            <code class="ruby">    expect(page).to have_content(&#39;Maxxxx Shelter&#39;)</code>
+            <code class="ruby">      expect(page).to have_content(&#39;Female&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="26">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # save_and_open_page</code>
+            
+
+            <code class="ruby">      expect(page).to have_content(&#39;Maxxxx Shelter&#39;)</code>
           </li>
         </div>
       
@@ -8607,7 +8618,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end </code>
           </li>
         </div>
       
@@ -8618,7 +8629,7 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -8629,7 +8640,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -8640,7 +8651,7 @@
 
             
 
-            <code class="ruby"># User Story 7, Pet Index</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -8651,7 +8662,7 @@
 
             
 
-            <code class="ruby">#</code>
+            <code class="ruby"># User Story 7, Pet Index</code>
           </li>
         </div>
       
@@ -8662,7 +8673,7 @@
 
             
 
-            <code class="ruby"># As a visitor</code>
+            <code class="ruby">#</code>
           </li>
         </div>
       
@@ -8673,7 +8684,7 @@
 
             
 
-            <code class="ruby"># When I visit &#39;/pets&#39;</code>
+            <code class="ruby"># As a visitor</code>
           </li>
         </div>
       
@@ -8684,7 +8695,7 @@
 
             
 
-            <code class="ruby"># Then I see each Pet in the system including the Pet&#39;s:</code>
+            <code class="ruby"># When I visit &#39;/pets&#39;</code>
           </li>
         </div>
       
@@ -8695,7 +8706,7 @@
 
             
 
-            <code class="ruby"># - image</code>
+            <code class="ruby"># Then I see each Pet in the system including the Pet&#39;s:</code>
           </li>
         </div>
       
@@ -8706,7 +8717,7 @@
 
             
 
-            <code class="ruby"># - name</code>
+            <code class="ruby"># - image</code>
           </li>
         </div>
       
@@ -8717,7 +8728,7 @@
 
             
 
-            <code class="ruby"># - approximate age</code>
+            <code class="ruby"># - name</code>
           </li>
         </div>
       
@@ -8728,12 +8739,23 @@
 
             
 
-            <code class="ruby"># - sex</code>
+            <code class="ruby"># - approximate age</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="39">
+            
+            
+
+            
+
+            <code class="ruby"># - sex</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="40">
             
             
 
@@ -9560,7 +9582,7 @@
 
             
 
-            <code class="ruby">    click_on(&quot;Create New Review&quot;)</code>
+            <code class="ruby">    click_on(&quot;Submit Review&quot;)</code>
           </li>
         </div>
       
@@ -9587,18 +9609,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="30">
+          <li class="covered" data-hits="1" data-linenumber="29">
             <span class="hits">1</span>
             
 
@@ -9609,7 +9620,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="31">
+          <li class="covered" data-hits="1" data-linenumber="30">
             <span class="hits">1</span>
             
 
@@ -9620,7 +9631,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="32">
+          <li class="covered" data-hits="1" data-linenumber="31">
             <span class="hits">1</span>
             
 
@@ -9631,18 +9642,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="33">
+          <li class="covered" data-hits="1" data-linenumber="32">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    click_on(&quot;Create New Review&quot;)</code>
+            <code class="ruby">    click_on(&quot;Submit Review&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="34">
+          <li class="covered" data-hits="1" data-linenumber="33">
             <span class="hits">1</span>
             
 
@@ -9653,7 +9664,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
+          <li class="covered" data-hits="1" data-linenumber="34">
             <span class="hits">1</span>
             
 
@@ -9664,7 +9675,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="36">
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
@@ -9675,7 +9686,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
@@ -9704,8 +9715,8 @@
     
 
     <div class="t-line-summary">
-      <b>25</b> relevant lines.
-      <span class="green"><b>25</b> lines covered</span> and
+      <b>26</b> relevant lines.
+      <span class="green"><b>26</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -9937,84 +9948,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
-            
-            
-
-            
-
-            <code class="ruby">      # review2 = Review.create(</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="22">
-            
-            
-
-            
-
-            <code class="ruby">      #                   title: &quot;Stuff Place&quot;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="23">
-            
-            
-
-            
-
-            <code class="ruby">      #                   rating: 1,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="24">
-            
-            
-
-            
-
-            <code class="ruby">      #                   content: &quot;Terrible staff and awfully messy area for animals.&quot;,</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
-            
-
-            <code class="ruby">      #                   shelter_id: shelter_1.id</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="26">
-            
-            
-
-            
-
-            <code class="ruby">      #                   )</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="27">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
+          <li class="covered" data-hits="1" data-linenumber="21">
             <span class="hits">1</span>
             
 
@@ -10025,7 +9959,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="29">
+          <li class="never" data-hits="" data-linenumber="22">
             
             
 
@@ -10036,7 +9970,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="30">
+          <li class="covered" data-hits="1" data-linenumber="23">
             <span class="hits">1</span>
             
 
@@ -10047,7 +9981,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="31">
+          <li class="covered" data-hits="1" data-linenumber="24">
             <span class="hits">1</span>
             
 
@@ -10058,7 +9992,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="32">
+          <li class="covered" data-hits="1" data-linenumber="25">
             <span class="hits">1</span>
             
 
@@ -10069,7 +10003,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="33">
+          <li class="covered" data-hits="1" data-linenumber="26">
             <span class="hits">1</span>
             
 
@@ -10080,7 +10014,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="34">
+          <li class="covered" data-hits="1" data-linenumber="27">
             <span class="hits">1</span>
             
 
@@ -10091,7 +10025,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
+          <li class="covered" data-hits="1" data-linenumber="28">
             <span class="hits">1</span>
             
 
@@ -10102,13 +10036,90 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="36">
+          <li class="covered" data-hits="1" data-linenumber="29">
             <span class="hits">1</span>
             
 
             
 
             <code class="ruby">      expect(page).to have_content(&quot;Picture&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="30">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      fill_in &#39;title&#39;, with: &#39;Best shelter ever!&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      fill_in &#39;rating&#39;, with: 5</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="33">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      fill_in &#39;content&#39;, with: &#39;Staff was friendly and they take great care of the pets!&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="34">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      fill_in &#39;picture&#39;, with: &#39;https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C-760x506.jpg&#39;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="36">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      click_on(&quot;Submit Review&quot;)</code>
           </li>
         </div>
       
@@ -10130,7 +10141,7 @@
 
             
 
-            <code class="ruby">      fill_in &#39;title&#39;, with: &#39;Best shelter ever!&#39;</code>
+            <code class="ruby">      have_current_path &quot;/shelters/#{shelter_1.id}&quot;</code>
           </li>
         </div>
       
@@ -10141,7 +10152,7 @@
 
             
 
-            <code class="ruby">      fill_in &#39;rating&#39;, with: 5</code>
+            <code class="ruby">      expect(page).to have_content(&quot;Best shelter ever!&quot;)</code>
           </li>
         </div>
       
@@ -10152,7 +10163,7 @@
 
             
 
-            <code class="ruby">      fill_in &#39;content&#39;, with: &#39;Staff was friendly and they take great care of the pets!&#39;</code>
+            <code class="ruby">      expect(page).to have_content(&#39;5&#39;)</code>
           </li>
         </div>
       
@@ -10163,89 +10174,12 @@
 
             
 
-            <code class="ruby">      fill_in &#39;picture&#39;, with: &#39;https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C-760x506.jpg&#39;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="42">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="43">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      click_on(&quot;Create New Review&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="44">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="45">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      have_current_path &quot;/shelters/#{shelter_1.id}&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="46">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      expect(page).to have_content(&quot;Best shelter ever!&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="47">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      expect(page).to have_content(&#39;5&#39;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
-            <span class="hits">1</span>
-            
-
-            
-
             <code class="ruby">      expect(page).to have_content(&#39;Staff was friendly and they take great care of the pets!&#39;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="49">
+          <li class="covered" data-hits="1" data-linenumber="42">
             <span class="hits">1</span>
             
 
@@ -10256,7 +10190,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="50">
+          <li class="covered" data-hits="1" data-linenumber="43">
             <span class="hits">1</span>
             
 
@@ -10267,51 +10201,40 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="51">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="44">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      # expect(page).to have_content(&#39;Stuff Place&#39;)</code>
+            
+
+            <code class="ruby">      expect(page).to have_css(&quot;img[src*=&#39;#{review1.picture}&#39;]&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="52">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
             
 
-            <code class="ruby">      # expect(page).to have_content(&#39;1&#39;)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="53">
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
             
 
-            <code class="ruby">      # expect(page).to have_content(&#39;Terrible staff and awfully messy area for animals.&#39;)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby">      # expect(page).to have_content(&quot;#{review1.picture}&quot;) #figure out later</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="55">
+          <li class="never" data-hits="" data-linenumber="47">
             
             
 
@@ -10322,7 +10245,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="never" data-hits="" data-linenumber="48">
             
             
 
@@ -10333,7 +10256,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="57">
+          <li class="never" data-hits="" data-linenumber="49">
             
             
 
