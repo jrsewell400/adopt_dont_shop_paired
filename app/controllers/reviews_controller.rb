@@ -3,19 +3,26 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @shelter_id = params[:id]
   end
 
   def create
-      review = Review.new({
-        title: params[:title],
-        rating: params[:rating],
-        content: params[:content],
-        image: params[:image]
-        })
+    shelter = Shelter.find(params[:id])
+    review = Review.new(strong_params)
 
-      review.save
+    review.save
 
-      redirect_to '/shelters/#{shelter.id}'
-    end
+    redirect_to "/shelters/#{params[:id]}"
+  end
+  
+  def show 
+    
+  end
+  
+  private 
+  def strong_params
+    
+    params.permit(:title, :rating, :content, :picture, :shelter_id)
+  end
 
 end
