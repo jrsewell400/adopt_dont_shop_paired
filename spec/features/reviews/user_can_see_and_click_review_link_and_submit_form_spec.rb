@@ -21,21 +21,20 @@ RSpec.describe "As a visitor", type: :feature do
       visit "/shelters/#{shelter_1.id}"
 
       click_link "Create New Review"
-   
       expect(current_path).to eq("/shelters/#{shelter_1.id}/new")
       expect(page).to have_content("Create New Review:")
       expect(page).to have_content("Title")
       expect(page).to have_content("Rating")
       expect(page).to have_content("Content")
       expect(page).to have_content("Picture")
-
+      
       fill_in 'title', with: 'Best shelter ever!'
       fill_in 'rating', with: 5
       fill_in 'content', with: 'Staff was friendly and they take great care of the pets!'
       fill_in 'picture', with: 'https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C-760x506.jpg'
       
       click_on("Create New Review")
-
+      
       have_current_path "/shelters/#{shelter_1.id}"
       
       expect(page).to have_content("Best shelter ever!")
@@ -45,18 +44,3 @@ RSpec.describe "As a visitor", type: :feature do
     end
   end
 end
-
-
-# US3
-# As a visitor,
-# When I visit a shelter's show page
-# I see a link to add a new review for this shelter.
-# When I click on this link, I am taken to a new review path
-# On this new page, I see a form where I must enter:
-
-# title
-# rating
-# content
-# I also see a field where I can enter an optional image (web address)
-# When the form is submitted, I should return to that shelter's show page
-# and I can see my new review
