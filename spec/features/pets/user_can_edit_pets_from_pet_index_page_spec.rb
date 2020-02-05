@@ -26,7 +26,7 @@ RSpec.describe "pets index page", type: :feature do
     visit '/pets'
     click_link "Update Pet"
     fill_in 'name', with: 'Astro'
-    fill_in 'describe', with: 'Little White Dog'
+    fill_in 'description', with: 'Little White Dog'
     fill_in 'age', with: '909'
     fill_in 'sex', with: 'Male'
     fill_in 'adopted', with: 'Pending Adoption'

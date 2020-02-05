@@ -1,13 +1,16 @@
 <h1>Shelter Pets</h1>
 
 
-  <% @shelter.pets.each do |pet| %>
+  <% @pets.each do |pet| %>
+  <% if pet.shelter_id == @shelter.id %>
+
   <a href=<%="/pets/#{pet.id}"%>
+
   <p> <%= image_tag(pet.image) %> <br/>
     <%= pet.name %> <br/></a>
     <%= pet.age %> <br/>
     <%= pet.sex %> <br/>
     <a href="/pets/<%= pet.id %>/edit">Update Pet</a>
     <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
-
+    <%  end %>
   <%  end %> </p>
