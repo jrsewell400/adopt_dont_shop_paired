@@ -14,7 +14,7 @@
         <li>Content: <%= review.content %></li>
         <li>Review: <%= review.rating %></li>
         <li><%= image_tag(review.picture, size: "200x200")%></li>
-    </ul> 
+    </ul>
   <% end %>
   </p1>
 
@@ -27,4 +27,3 @@
   <%= link_to 'Return To Shelters Index Page', '/shelters' %>
   <br/>
   <%= button_to 'Delete', "/shelters/#{@shelter.id}", method: :delete %>
-  
