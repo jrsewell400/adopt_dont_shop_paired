@@ -5,16 +5,13 @@ class PetsController < ApplicationController
     @shelters = Shelter.all
   end
 
+  def new
+    @shelter_id = params[:id]
+  end
+
   def create
-    pet = Pet.new({
-      image: params[:image],
-      name: params[:name],
-      description: params[:description],
-      age: params[:age],
-      sex: params[:sex],
-      adopted: params[:adopted] = "Adopted",
-      shelter_id: 1
-      })
+    shelter = Shelter.first
+    pet = shelter.pets.create(strong_params)
 
     pet.save
 
@@ -25,23 +22,13 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
-  def new
-    @shelter_id = params[:id]
-  end
-
   def edit
     @pet = Pet.find(params[:id])
   end
 
   def update
     pet = Pet.find(params[:id])
-    pet.update({
-      name: params[:name],
-      description: params[:describe],
-      age: params[:age],
-      sex: params[:sex],
-      adopted: params[:adopted]
-      })
+    pet.update(strong_params)
 
     pet.save
 
@@ -51,5 +38,11 @@ class PetsController < ApplicationController
   def destroy
     Pet.destroy(params[:id])
     redirect_to '/pets'
+  end
+
+  private
+  def strong_params
+
+    params.permit(:name, :image, :description, :age, :sex, :adopted, :shelter_id)
   end
 end
