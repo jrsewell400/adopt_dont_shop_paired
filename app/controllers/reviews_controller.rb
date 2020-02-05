@@ -3,12 +3,12 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @shelter_id = params[:id]
+    @shelter_id = params[:id] 
   end
 
   def create
     shelter = Shelter.find(params[:id])
-    review = Review.new(strong_params)
+    review = shelter.reviews.create(strong_params)
 
     review.save
 
