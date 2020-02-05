@@ -36,16 +36,5 @@ RSpec.describe "shelters pets", type: :feature do
   expect(page).to have_content('Lilly')
   expect(page).to have_content('4')
   expect(page).to have_content('Female')
-  # save_and_open_page
   end
 end
-
-# User Story 8, Shelter Pets Index
-#
-# As a visitor
-# When I visit '/shelters/:shelter_id/pets'
-# Then I see each Pet that can be adopted from that Shelter with that shelter_id including the Pet's:
-# - image
-# - name
-# - approximate age
-# - sex
