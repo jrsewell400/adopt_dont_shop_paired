@@ -19,12 +19,11 @@ RSpec.describe "pets index page", type: :feature do
     visit "/pets"
     have_current_path "/pets"
     within "#pet-#{lilly.id}" do
-      # expect(page).to have_content('Pets')
       expect(page).to have_content('Lilly')
       expect(page).to have_content('4')
       expect(page).to have_content('Female')
       expect(page).to have_content('Maxxxx Shelter')
-    end 
+    end
   end
 end
 

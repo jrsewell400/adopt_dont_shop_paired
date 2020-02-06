@@ -16,16 +16,22 @@ RSpec.describe "shelter show page", type: :feature do
                             )
 
   visit "/shelters/#{shelter_1.id}"
+
   click_link 'Edit This Review'
+
   have_current_path "/shelters/#{shelter_1.id}/review/edit"
+
   fill_in 'title', with: 'Edited Review Title'
   fill_in 'content', with: 'Edited Review Content'
-  fill_in 'rating', with: 'Edited Review Rating'
+  fill_in 'rating', with: '0'
   fill_in 'picture', with: 'https://s3.amazonaws.com/lowres.cartoonstock.com/sport-apocalypse-apocalyptic-dead_worlds-dying_worlds-free_time-gra110412_low.jpg'
-  # click_on('submitter')
-  # have_current_path "/shelters/#{shelter_1.id}"
-  # expect(page).to have_content('Edited Review Title')
-  # expect(page).to have_content('Edited Review Content')
-  # expect(page).to have_content('Edited Review Rating')
+
+  click_on('submitter')
+
+  have_current_path "/shelters/#{shelter_1.id}"
+
+  expect(page).to have_content('Edited Review Title')
+  expect(page).to have_content('Edited Review Content')
+  expect(page).to have_content('0')
   end
 end

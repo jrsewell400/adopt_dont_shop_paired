@@ -11,11 +11,12 @@ class PetsController < ApplicationController
 
   def create
     shelter = Shelter.find(params[:id])
+
     pet = shelter.pets.create(strong_params)
 
     pet.save
 
-    redirect_to "/shelters/#{pet.id}/pets"
+    redirect_to "/shelters/#{shelter.id}/pets"
   end
 
   def show

@@ -39,7 +39,6 @@ RSpec.describe "individidual pet pages", type: :feature do
   click_button "Delete"
   have_current_path "/pets"
   expect(page).to_not have_content('Lilly')
-  # save_and_open_page
   end
 end
 

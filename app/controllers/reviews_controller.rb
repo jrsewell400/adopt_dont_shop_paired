@@ -38,8 +38,9 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    # require "pry"; binding.pry
     Review.destroy(params[:id])
-    redirect_to "/shelters/#{params[:id]}"
+    redirect_to "/shelters/#{params[:shelter_id]}"
   end
 
 
