@@ -11,6 +11,8 @@ class PetsController < ApplicationController
 
   def create
     shelter = Shelter.find(params[:id])
+    require "pry"; binding.pry
+
     pet = shelter.pets.create(strong_params)
 
     pet.save
