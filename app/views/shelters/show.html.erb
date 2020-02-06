@@ -15,11 +15,15 @@
         <li>Content: <%= review.content %></li>
         <li>Review: <%= review.rating %></li>
         <li><%= image_tag(review.picture, size: "200x200")%></li>
+
     </ul>
+    <a href="/shelters/<%= review.id %>/review/edit">Edit This Review</a></br>
+    <a href="/shelters/<%= review.id %>/review/delete">Delete This Review</a></br>
+
     <% end %>
   <% end %>
   </p1>
-
+  <br/><br/>
   <%= link_to 'Create New Review', "/shelters/#{@shelter.id}/new"%>
   <br/>
   <a href="/shelters/<%= @shelter.id %>/pets">Pets</a><br/>

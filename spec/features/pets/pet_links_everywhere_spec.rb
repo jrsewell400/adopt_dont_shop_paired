@@ -10,14 +10,16 @@ RSpec.describe "shelters index page", type: :feature do
 
 
 
-    lilly = Pet.create(image: "pets/golden.jpg",
+    lilly = Pet.create!(image: "pets/golden.jpg",
                        name: "Lilly",
                        description: "Black Dog",
                        age: "4",
                        sex: "Female",
                        shelter_id: shelter_1.id)
 
-    visit "/shelters/#{shelter_1.id}/pets"
+    visit "/shelters"
+    click_on shelter_1.name
+    click_on "Pets"
     click_on lilly.name
     have_current_path "/pets/#{lilly.id}"
   end
