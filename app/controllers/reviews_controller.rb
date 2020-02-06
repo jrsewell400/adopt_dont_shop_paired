@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Need to fill in a Title, Rating, and Content in order to submit a Shelter Review."
       render :new
     end
-end
+  end
 
   def create
     shelter = Shelter.find(params[:id])
@@ -36,6 +36,11 @@ end
       flash[:notice] = "Need to fill in a Title, Rating, and Content in order to submit a Shelter Review."
       render :new
     end
+  end
+
+  def destroy
+    Review.destroy(params[:id])
+    redirect_to "/shelters/#{params[:id]}"
   end
 
 
