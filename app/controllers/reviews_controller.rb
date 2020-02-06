@@ -16,7 +16,13 @@ class ReviewsController < ApplicationController
     review.update(strong_params)
     review.save
 
-    redirect_to "/shelters/#{review.id}"
+    if review.save
+      redirect_to "/shelters/#{review.id}"
+      flash[:notice] = "Review successfully edited."
+    else
+      flash[:notice] = "Need to fill in a Title, Rating, and Content in order to submit a Shelter Review."
+      render :new
+    end
 end
 
   def create

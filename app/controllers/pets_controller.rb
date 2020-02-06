@@ -10,7 +10,6 @@ class PetsController < ApplicationController
   end
 
   def create
-    # require "pry"; binding.pry
     shelter = Shelter.first
     pet = shelter.pets.create(strong_params)
 
