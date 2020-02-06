@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "individual shelter pages", type: :feature do
-  it "can delete individual shelters" do
+  it "can delete individual shelter reviews" do
     shelter_1 = Shelter.create(name:       "This is a Shelter",
                          address:       "1042 N Marion St",
                          city:          "Denver",
@@ -21,9 +21,11 @@ RSpec.describe "individual shelter pages", type: :feature do
     expect(page).to have_content(review1.content)
     expect(page).to have_content(review1.rating)
     expect(page).to have_css("img[src*='#{review1.picture}']")
-    # click_link "Delete"
-    # have_current_path "/shelters/#{shelter_1.id}"
-    # expect(page).to have_content('My Other Shelter')
-    # expect(page).to_not have_content('This is a Shelter')
+    click_link "Delete This Review"
+    save_and_open_page
+
+    have_current_path "/shelters/#{shelter_1.id}"
+    expect(page).to have_content('My Other Shelter')
+    expect(page).to_not have_content('This is a Shelter')
   end
 end

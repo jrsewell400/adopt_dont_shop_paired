@@ -31,7 +31,6 @@ RSpec.describe "pets index page", type: :feature do
     fill_in 'sex', with: 'Male'
     fill_in 'adopted', with: 'Pending Adoption'
     click_on('submitter')
-    # save_and_open_page
     expect(page).to have_content('Astro')
     expect(page).to have_content('909')
     expect(page).to have_content('Little White Dog')

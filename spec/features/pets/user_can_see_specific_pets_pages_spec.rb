@@ -20,7 +20,6 @@ RSpec.describe "individual pet pages", type: :feature do
                         )
 
    visit "/pets/#{lilly.id}"
-   # save_and_open_page
    expect(page).to have_content('Lilly')
    expect(page).to have_content('The best damn dawg in the whole wide world')
    expect(page).to have_content('4')
