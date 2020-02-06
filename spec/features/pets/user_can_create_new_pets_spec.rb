@@ -32,7 +32,7 @@ RSpec.describe "create pets", type: :feature do
       fill_in 'age', with: '6'
       fill_in 'sex', with: 'Female'
       click_on("Create Pet")
-      have_current_path "/shelters/#{shelter_1.id}"
+      have_current_path "/shelters/#{shelter_1.id}/pets"
   end
 end
 

@@ -14,14 +14,13 @@ class ReviewsController < ApplicationController
     review = Review.find(params[:id])
 
     review.update(strong_params)
-    review.save
 
     if review.save
-      redirect_to "/shelters/#{review.id}"
+      redirect_to "/shelters/#{review.shelter_id}"
       flash[:notice] = "Review successfully edited."
     else
+      redirect_to "/shelters/#{review.shelter_id}/review/edit"
       flash[:notice] = "Need to fill in a Title, Rating, and Content in order to submit a Shelter Review."
-      render :new
     end
   end
 
