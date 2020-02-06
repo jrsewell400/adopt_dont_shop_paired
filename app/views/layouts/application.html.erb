@@ -9,13 +9,17 @@
   </head>
 
   <body>
-    <h6><a href='/'> HOME </a>
-      <a href='/pets'> Pets Index</a>
-      <a href='/shelters'> Shelters Index</a></h6>
+    <nav id="nav">
+      <a class="nav-link active" href='/'> Home </a> |
+      <a class="nav-link active" href='/pets'> Pets Index</a> |
+      <a class="nav-link active" href='/shelters'> Shelters Index</a> |
+      <a class="nav-link active" href='/shelters'>Number of Favorites: 0</a>
+    </nav>
 
-      <% flash.each do |flash, msg| %>
+    <% flash.each do |flash, msg| %>
       <%= msg %>
-      <% end %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
