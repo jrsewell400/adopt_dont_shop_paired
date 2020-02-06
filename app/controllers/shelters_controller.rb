@@ -6,10 +6,7 @@ class SheltersController < ApplicationController
   def new
   end
 
-  def pets
-    @pets = Pet.all
-    @shelter = Shelter.find(params[:id])
-  end
+
 
   def show
     @reviews = Review.all
