@@ -6,6 +6,19 @@ class ReviewsController < ApplicationController
     @shelter_id = params[:id]
   end
 
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    review = Review.find(params[:id])
+
+    review.update(strong_params)
+    review.save
+
+    redirect_to "/shelters/#{review.id}"
+end
+
   def create
     shelter = Shelter.find(params[:id])
     review = shelter.reviews.create(strong_params)
@@ -19,9 +32,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def show
-
-  end
 
   private
   def strong_params

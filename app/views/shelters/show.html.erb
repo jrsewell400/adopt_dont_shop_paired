@@ -15,8 +15,10 @@
         <li>Content: <%= review.content %></li>
         <li>Review: <%= review.rating %></li>
         <li><%= image_tag(review.picture, size: "200x200")%></li>
+
     </ul>
     <% end %>
+    <a href="/shelters/<%= review.id %>/review/edit">Edit This Review</a></br>
   <% end %>
   </p1>
 
