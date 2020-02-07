@@ -34,12 +34,3 @@ RSpec.describe "shelter show page", type: :feature do
   expect(page).to_not have_content('This is a Shelter')
   end
 end
-
-
-# User Story 14, Shelter Delete From Shelter Index Page
-#
-# As a visitor
-# When I visit the shelter index page
-# Next to every shelter, I see a link to delete that shelter
-# When I click the link
-# I am returned to the Shelter Index Page where I no longer see that shelter

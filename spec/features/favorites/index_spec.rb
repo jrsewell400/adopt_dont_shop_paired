@@ -27,7 +27,3 @@ RSpec.describe "As a visitor," do
         expect(current_path).to eq('/favorites')
     end
 end
-
-# As a visitor
-# When I click on the favorite indicator in the nav bar
-# I am taken to the favorites index page
