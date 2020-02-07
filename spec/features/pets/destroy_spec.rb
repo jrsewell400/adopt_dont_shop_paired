@@ -40,6 +40,26 @@ RSpec.describe "individidual pet pages", type: :feature do
   have_current_path "/pets"
   expect(page).to_not have_content('Lilly')
   end
+  it "can delete a pet" do
+    shelter_1 = Shelter.create(name:       "Maxxxx Shelter",
+                               address:       "1042 N Marion St",
+                               city:          "Denver",
+                               state:         "Colorado",
+                               zip:          "80218"
+                               )
+
+    lilly = Pet.create(image: "pets/golden.jpg",
+                       name: "Lilly",
+                       description: "Black Dog",
+                       age: "4",
+                       sex: "Female",
+                       shelter_id: shelter_1.id
+                        )
+    visit "/pets"
+    expect(page).to have_content('Lilly')
+    click_button "Delete"
+    expect(page).to_not have_content('Lilly')
+  end
 end
 
 

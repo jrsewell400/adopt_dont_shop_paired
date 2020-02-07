@@ -28,6 +28,13 @@ RSpec.describe "shelters pets", type: :feature do
                        name: "Max",
                        age: "14",
                        sex: "Male",
+                       shelter_id: shelter_1.id
+                        )
+
+    mary = Pet.create(image: "pets/lab.jpg",
+                       name: "Mary",
+                       age: "1",
+                       sex: "Female",
                        shelter_id: shelter_2.id
                         )
 
@@ -36,5 +43,9 @@ RSpec.describe "shelters pets", type: :feature do
   expect(page).to have_content('Lilly')
   expect(page).to have_content('4')
   expect(page).to have_content('Female')
+  
+  expect(page).to have_content('Max')
+  expect(page).to have_content('14')
+  expect(page).to have_content('Male')
   end
 end
