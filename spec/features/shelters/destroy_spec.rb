@@ -9,7 +9,7 @@ RSpec.describe "shelter show page", type: :feature do
                           zip:          "80218")
 
   visit '/shelters'
-  click_button 'Delete This Shelter'
+  click_on('Delete This Shelter')
   have_current_path "/shelters"
   expect(page).to_not have_content('Anotha Shelta')
   end
@@ -20,11 +20,6 @@ RSpec.describe "shelter show page", type: :feature do
                          state:         "Colorado",
                           zip:          "80218")
 
-    shelter_2 = Shelter.create(name:       "My Other Shelter",
-                               address:       "15580 Quorum Dr",
-                               city:          "Dallas",
-                               state:         "Texas",
-                               zip:          "75001")
     review1 = Review.create(
                           title: "Good Shelter",
                           rating: 5,
@@ -33,14 +28,9 @@ RSpec.describe "shelter show page", type: :feature do
                           shelter_id: shelter_1.id
                           )
   visit "/shelters"
-  have_current_path "/shelters"
   expect(page).to have_content('This is a Shelter')
-  expect(page).to have_content('My Other Shelter')
-  click_link "#{shelter_1.name}"
-  have_current_path "/shelters/#{shelter_1.name}"
-  click_button "Delete"
+  click_on("Delete This Shelter")
   have_current_path "/shelters"
-  expect(page).to have_content('My Other Shelter')
   expect(page).to_not have_content('This is a Shelter')
   end
 end
