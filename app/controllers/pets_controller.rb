@@ -3,7 +3,8 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
     @shelters = Shelter.all
-    @favorites = Favorites.new(session[:favorites])
+    # require "pry"; binding.pry
+    @favorite = Favorite.new(session[:favorites])
   end
 
   def new

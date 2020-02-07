@@ -1,7 +1,8 @@
-class Favorites < ApplicationRecord
+class Favorite
   attr_reader :contents
 
   def initialize(initial_contents)
+    require "pry"; binding.pry
     @contents = initial_contents
   end
 

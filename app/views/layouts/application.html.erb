@@ -13,7 +13,8 @@
       <a class="nav-link active" href='/'> Home </a> |
       <a class="nav-link active" href='/pets'> Pets Index</a> |
       <a class="nav-link active" href='/shelters'> Shelters Index</a> |
-      <a class="nav-link active" href='/favorites'>Number of Favorites: <%= @favorites.total_count %></a>
+      <% binding.pry %>
+      <a class="nav-link active" href='/favorites'>Number of Favorites: <%= favorite_pet %></a>
     </nav>
 
     <% flash.each do |flash, msg| %>
