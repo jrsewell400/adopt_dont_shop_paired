@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
       redirect_to "/shelters/#{review.shelter_id}"
       flash[:notice] = "Review successfully edited."
     else
-      redirect_to "/shelters/#{review.shelter_id}/review/edit"
+      redirect_to "/shelters/#{review.shelter_id}/review/#{review.id}/edit"
       flash[:notice] = "Need to fill in a Title, Rating, and Content in order to submit a Shelter Review."
     end
   end
@@ -38,7 +38,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    # require "pry"; binding.pry
     Review.destroy(params[:id])
     redirect_to "/shelters/#{params[:shelter_id]}"
   end

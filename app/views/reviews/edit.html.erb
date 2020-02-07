@@ -1,5 +1,5 @@
 <h1>Edit This Review</h1>
-<form action="/shelters/<%= @review.id %>/review" method="post">
+<form action="/shelters/<%= @review.shelter_id %>/review/<%= @review.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="PATCH" />
   <p>Edit</p>
