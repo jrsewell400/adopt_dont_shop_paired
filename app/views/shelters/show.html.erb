@@ -17,7 +17,7 @@
         <li><%= image_tag(review.picture, size: "200x200")%></li>
 
     </ul>
-    <a href="/shelters/<%= review.id %>/review/edit">Edit This Review</a></br>
+    <a href="/shelters/<%= review.shelter_id %>/review/<%= review.id %>/edit">Edit This Review</a></br>
     <a href="/shelters/<%= review.shelter_id %>/review/<%= review.id %>/delete">Delete This Review</a></br>
 
     <% end %>
