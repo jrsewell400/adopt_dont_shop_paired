@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe "individual shelter pages", type: :feature do
-  it "can see all attributes of a shelter" do
-    shelter_1 = Shelter.create(
-                         name:       "Shelters 'r Us",
+  it "can delete individual shelter reviews" do
+    shelter_1 = Shelter.create(name:       "This is a Shelter",
                          address:       "1042 N Marion St",
                          city:          "Denver",
                          state:         "Colorado",
-                         zip:          "80218")
+                          zip:          "80218")
 
     review1 = Review.create(
                           title: "Good Shelter",
@@ -18,22 +17,13 @@ RSpec.describe "individual shelter pages", type: :feature do
                           )
 
     visit "/shelters/#{shelter_1.id}"
-    expect(page).to have_content(shelter_1.name)
-    expect(page).to have_content(shelter_1.address)
-    expect(page).to have_content(shelter_1.city)
-    expect(page).to have_content(shelter_1.state)
-    expect(page).to have_content(shelter_1.zip)
+    expect(page).to have_content(review1.title)
+    expect(page).to have_content(review1.content)
+    expect(page).to have_content(review1.rating)
+    expect(page).to have_css("img[src*='#{review1.picture}']")
+    click_link "Delete This Review"
+
+    have_current_path "/shelters/#{shelter_1.id}"
+    expect(page).to_not have_content('Good Shelter')
   end
 end
-
-
-# User Story 3, Shelter Show
-#
-# As a visitor
-# When I visit '/shelters/:id'
-# Then I see the shelter with that id including the shelter's:
-# - name
-# - address
-# - city
-# - state
-# - zip
