@@ -4,7 +4,7 @@
     <title>AdoptDontShop</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
@@ -13,7 +13,7 @@
       <a class="nav-link active" href='/'> Home </a> |
       <a class="nav-link active" href='/pets'> Pets Index</a> |
       <a class="nav-link active" href='/shelters'> Shelters Index</a> |
-      <a class="nav-link active" href='/favorites'>Number of Favorites:</a> 0
+      <a class="nav-link active" href='/favorites'>Number of Favorites: <%= @favorites.total_count %></a>
     </nav>
 
     <% flash.each do |flash, msg| %>

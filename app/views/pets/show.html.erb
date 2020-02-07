@@ -7,6 +7,7 @@
     <%= @pet.sex %><br/>
     <%= @pet.adopted %><br/>
     <%= button_to 'Delete', "/pets/#{@pet.id}", method: :delete %>
+    <%= button_to "Favorite Pet", "/cart/#{@pet.id}", method: :patch %>
 
 </p><br/>
 <a href="/pets/<%= @pet.id %>/edit">Update Pet</a>
