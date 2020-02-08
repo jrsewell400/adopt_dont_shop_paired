@@ -32,7 +32,7 @@ RSpec.describe "As a visitor," do
                               state:         "Texas",
                               zip:          "75001")
 
-    lilly = Pet.create(image: "pets/lilly.jpeg",
+    lilly = Pet.create(image: "https://thehappypuppysite.com/wp-content/uploads/2019/03/How-Long-Do-Labrador-Retriever-Live-long.jpg",
                        name: "Lilly",
                        description: "Black Dog",
                        age: "4",
@@ -52,8 +52,19 @@ RSpec.describe "As a visitor," do
     click_on('Number of Favorites:')
 
     expect(current_path).to eq('/favorites')
+
     expect(page).to have_content(mojo.name)
-    save_and_open_page
     expect(page).to have_css("img[src*='#{mojo.image}']")
+
+    visit "/pets/#{lilly.id}"
+
+    click_on("Favorite Pet")
+    click_on('Number of Favorites:')
+    save_and_open_page
+
+    expect(page).to have_content(mojo.name)
+    expect(page).to have_css("img[src*='#{mojo.image}']")
+    expect(page).to have_content(lilly.name)
+    expect(page).to have_css("img[src*='#{lilly.image}']")
   end
 end
