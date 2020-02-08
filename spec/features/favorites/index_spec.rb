@@ -70,3 +70,13 @@ RSpec.describe "As a visitor," do
     expect(page).to have_css("img[src*='#{lilly.image}']")
   end
 end
+
+describe "As a visitor," do
+   describe "when I haven't added any favorites and I visit my favorites page" do
+    it "then I see text saying I have no favorited pets" do
+        visit "/"
+        click_on('Number of Favorites:')
+        expect(page).to have_content("There are no favorited pets to show!")
+    end
+  end
+end
