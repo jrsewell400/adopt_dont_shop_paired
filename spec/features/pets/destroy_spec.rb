@@ -40,6 +40,7 @@ RSpec.describe "individidual pet pages", type: :feature do
   have_current_path "/pets"
   expect(page).to_not have_content('Lilly')
   end
+
   it "can delete a pet" do
     shelter_1 = Shelter.create(name:       "Maxxxx Shelter",
                                address:       "1042 N Marion St",
@@ -61,14 +62,3 @@ RSpec.describe "individidual pet pages", type: :feature do
     expect(page).to_not have_content('Lilly')
   end
 end
-
-
-# User Story 12, Pet Delete
-#
-# As a visitor
-# When I visit a pet show page
-# Then I see a link to delete the pet "Delete Pet"
-# When I click the link
-# Then a 'DELETE' request is sent to '/pets/:id',
-# the pet is deleted,
-# and I am redirected to the pet index page where I no longer see this pet
