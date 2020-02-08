@@ -19,7 +19,6 @@
           <%= image_tag(review.picture, size: "200x200") %><br/>
           <%= link_to 'Edit This Review', "/shelters/#{review.shelter_id}/review/#{review.id}/edit" %></br>
           <%= link_to 'Delete This Review', "/shelters/#{review.shelter_id}/review/#{review.id}/delete" %></br>
-          <%= link_to 'Create New Review', "/shelters/#{@shelter.id}/new"%><br/>
         <% end %>
       <% end %>
     </p2>
@@ -27,6 +26,7 @@
 
 <section id="shelter_options">
  <h3>Shelter Options:</h3>
+  <%= link_to 'Create New Review', "/shelters/#{@shelter.id}/new"%><br/>
   <%= link_to 'Pets', "/shelters/#{@shelter.id}/pets" %><br/>
   <%= link_to 'New Pet', "/shelters/#{@shelter.id}/pets/new" %><br/>
   <%= link_to 'Edit This Shelter', "/shelters/#{@shelter.id}/edit" %><br/>
