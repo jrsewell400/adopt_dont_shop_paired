@@ -16,13 +16,11 @@ RSpec.describe "As a visitor," do
         within('#nav') do
             expect(page).to have_content("Number of Favorites:")
         end
-    end
 
-    it "I can click the favorite indicator and be taken to the favorites index page." do
+
         visit '/'
         click_on('Number of Favorites:')
         expect(current_path).to eq('/favorites')
-    end
   end
 
   it "I see a Favorites index and the pet name and image of the pet that have been favorited" do
@@ -54,7 +52,7 @@ RSpec.describe "As a visitor," do
 
     visit "/pets/#{mojo.id}"
 
-    click_on("Favorite Pet")
+    click_button("Favorite Pet")
     click_on('Number of Favorites:')
 
     expect(current_path).to eq('/favorites')
@@ -63,8 +61,7 @@ RSpec.describe "As a visitor," do
     expect(page).to have_css("img[src*='#{mojo.image}']")
 
     visit "/pets/#{lilly.id}"
-
-    click_on("Favorite Pet")
+    click_button("Favorite Pet")
     click_on('Number of Favorites:')
 
     expect(page).to have_content(mojo.name)
@@ -72,4 +69,15 @@ RSpec.describe "As a visitor," do
     expect(page).to have_content(lilly.name)
     expect(page).to have_css("img[src*='#{lilly.image}']")
   end
+end
+
+describe "As a visitor," do 
+   describe "when I haven't added any favorites and I visit my favorites page" do 
+    it "then I see text saying I have no favorited pets" do 
+        visit "/"
+        click_on('Number of Favorites:')
+        save_and_open_page
+        expect(page).to have_content("There are no favorited pets to show!")
+    end 
+  end 
 end
