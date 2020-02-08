@@ -1,11 +1,12 @@
 <h1>All Shelters</h1>
 
-<% @shelters.each do |shelter| %>
-  <p1><a style="font-size:260%;" href="/shelters/<%= shelter.id %>"><%= shelter.name =%></a><br/><br/>
-    <a href="/shelters/<%= shelter.id %>/edit">Edit This Shelter</a><br/>
-    <a href="/shelters/<%= shelter.id %>/delete">Delete This Shelter</a></br>
-    <p1/>
-  <br/>
-<% end %>
-  <br/>
-<a href="/shelters/new">New Shelter</a>
+<section id="shelter_info", align="center">
+  <% @shelters.each do |shelter| %>
+    <p>
+      <h2><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %></h2>
+      <%= link_to 'Edit This Shelter', "/shelters/#{shelter.id}/edit" %></br>
+      <%= link_to 'Delete This Shelter', "/shelters/#{shelter.id}/delete" %></br>
+      <%= link_to 'New Shelter', "/shelters/new" %> 
+    </p><br/></br>
+  <% end %>
+
