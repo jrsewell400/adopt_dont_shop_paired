@@ -36,7 +36,7 @@ RSpec.describe "shelters index page", type: :feature do
                                zip:          "80218"
                                )
 
-    lilly = Pet.create(image: "pets/lab.jpg",
+    lilly = Pet.create(image: "https://static.boredpanda.com/blog/wp-content/uploads/2020/01/funny-dog-teeth-toofers-3-5e255a95cd31e__700.jpg",
                        name: "Lilly",
                        age: "4",
                        sex: "Female",
@@ -46,10 +46,12 @@ RSpec.describe "shelters index page", type: :feature do
     visit "/pets"
     have_current_path "/pets"
     within "#pet-#{lilly.id}" do
+      save_and_open_page
       expect(page).to have_content('Lilly')
       expect(page).to have_content('4')
       expect(page).to have_content('Female')
       expect(page).to have_content('Maxxxx Shelter')
+      expect(page).to have_css("img[src*='#{lilly.image}']")
     end
   end
 end
