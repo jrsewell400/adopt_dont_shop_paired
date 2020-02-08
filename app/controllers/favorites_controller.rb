@@ -1,6 +1,15 @@
 class FavoritesController < ApplicationController
   include ActionView::Helpers::TextHelper
+
   def index
+    @pets = Pet.all
+    @pet_favorites = Array.new
+    @pets.each do |pet|
+      if session[:favorites].has_key?(pet.id.to_s)
+        @pet_favorites << pet
+      end
+    end
+    # require "pry"; binding.pry
   end
 
   def update

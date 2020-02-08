@@ -1,1 +1,7 @@
 <h1>Favorited Pets</h1>
+<p1>
+<% @pet_favorites.each do |pet| %>
+  <%= pet.name %><br/>
+  <%= image_tag(pet.image) %><br/>
+  <% end %>
+  </p1>
