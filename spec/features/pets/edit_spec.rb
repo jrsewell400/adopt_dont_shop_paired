@@ -16,6 +16,7 @@ RSpec.describe "edit pets", type: :feature do
                        sex: "Female",
                        shelter_id: shelter_1.id
                         )
+
     visit "/pets/#{lilly.id}"
     click_link "Update Pet"
     fill_in 'name', with: 'Astro'
@@ -30,6 +31,7 @@ RSpec.describe "edit pets", type: :feature do
     expect(page).to have_content('Male')
     expect(page).to have_content('Pending Adoption')
   end
+
   it "can edit pets from pet index page" do
     shelter_1 = Shelter.create(name:       "This is a Shelter",
                          address:       "1042 N Marion St",
@@ -50,8 +52,6 @@ RSpec.describe "edit pets", type: :feature do
                        sex: "Female",
                        shelter_id: shelter_1.id)
 
-
-
     visit '/pets'
     click_link "Update Pet"
     fill_in 'name', with: 'Astro'
@@ -67,21 +67,3 @@ RSpec.describe "edit pets", type: :feature do
     expect(page).to have_content('Pending Adoption')
   end
 end
-
-
-#     User Story 11, Pet Update
-#
-# As a visitor
-# When I visit a Pet Show page
-# Then I see a link to update that Pet "Update Pet"
-# When I click the link
-# I am taken to '/pets/:id/edit' where I see a form to edit the pet's data including:
-# - image
-# - name
-# - description
-# - approximate age
-# - sex
-# When I click the button to submit the form "Update Pet"
-# Then a `PATCH` request is sent to '/pets/:id',
-# the pet's data is updated,
-# and I am redirected to the Pet Show page where I see the Pet's updated information
