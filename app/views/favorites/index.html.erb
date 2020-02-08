@@ -3,7 +3,7 @@
 <section id="pet_favorites">
   <% if @pet_favorites.empty? %>
     There are no favorited pets to show!
-  <% else @pet_favorites.each do |pet| %>  
+  <% else @pet_favorites.each do |pet| %>
       <p1>
       <%= pet.name %><br/>
       <%= image_tag(pet.image, size: "200x200") %><br/>
@@ -12,3 +12,4 @@
     <% end %>
   <% end %>
 </section>
+<%= button_to 'Remove All Favorites', "/favorites/delete_all", method: :delete %>

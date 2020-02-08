@@ -14,6 +14,12 @@ RSpec.describe "On a pets show page," do
                        age: "4",
                        sex: "Female",
                        shelter_id: @shelter_1.id)
+    @mojo = Pet.create(image: "https://files.brief.vet/2019-07/pelvic-limb_HEADER.png",
+                        name: "Mojo Jojo",
+                        description: "Annoying little chomper",
+                        age: "40",
+                        sex: "Female",
+                        shelter_id: @shelter_1.id)
   end
   it "If a pet has been favorited, I see a button to remove it from favorites." do
 
@@ -40,14 +46,17 @@ RSpec.describe "On a pets show page," do
     expect(page).to have_content("Number of Favorites: 0")
     end
   end
+  describe "As a visitor" do
+    it "When I have favorited pets, and visit the index page, I can remove all favorited pets with one button" do
+      visit "/pets/#{@lilly.id}"
+      click_button("Favorite Pet")
+      visit "/pets/#{@mojo.id}"
+      click_button("Favorite Pet")
+      visit "/favorites"
+      click_button("Remove All Favorites")
+      have_current_path "/favorites"
+      expect(page).to have_content("There are no favorited pets to show!")
+      expect(page).to have_content("Number of Favorites: 0")
+    end
+  end
 end
-# User Story 13, Remove a Favorite from Favorites Page
-#
-# As a visitor
-# When I have added pets to my favorites list
-# And I visit my favorites page ("/favorites")
-# Next to each pet, I see a button or link to remove that pet from my favorites
-# When I click on that button or link to remove a favorite
-# A delete request is sent to "/favorites/:pet_id"
-# And I'm redirected back to the favorites page where I no longer see that pet listed
-# And I also see that the favorites indicator has decremented by 1
