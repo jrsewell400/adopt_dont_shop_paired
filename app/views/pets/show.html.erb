@@ -8,7 +8,10 @@
     <%= @pet.sex %><br/>
     <%= @pet.adopted %><br/>
     <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
-    <%= if session[:favorites].has_key?()
-    <%= button_to "Favorite Pet", "/favorite/#{@pet.id}", method: :patch %><br/>
+    <% if session[:favorites] && session[:favorites].has_key?(@pet.id.to_s) %>
+      <%= button_to "Remove Pet From Favorites", "/favorite/#{@pet.id}", method: :delete %><br/>
+      <% else %>
+      <%= button_to "Favorite Pet", "/favorite/#{@pet.id}", method: :patch %><br/>
+    <% end %>
     <%= button_to 'Delete', "/pets/#{@pet.id}", method: :delete %><br/>
 </p></br>

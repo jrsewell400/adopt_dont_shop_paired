@@ -52,7 +52,7 @@ RSpec.describe "As a visitor," do
 
     visit "/pets/#{mojo.id}"
 
-    click_on("Favorite Pet")
+    click_button("Favorite Pet")
     click_on('Number of Favorites:')
 
     expect(current_path).to eq('/favorites')
@@ -61,8 +61,7 @@ RSpec.describe "As a visitor," do
     expect(page).to have_css("img[src*='#{mojo.image}']")
 
     visit "/pets/#{lilly.id}"
-
-    click_on("Favorite Pet")
+    click_button("Favorite Pet")
     click_on('Number of Favorites:')
 
     expect(page).to have_content(mojo.name)
