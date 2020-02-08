@@ -29,7 +29,7 @@ RSpec.describe "shelters index page", type: :feature do
     # expect(page).to have_content('Adoptable')
   end
   it "shows all pets in the database" do
-    shelter_1 = Shelter.create(name:       "Maxxxx Shelter",
+    shelter_1 = Shelter.create(name:       "Generic Shelter",
                                address:       "1042 N Marion St",
                                city:          "Denver",
                                state:         "Colorado",
@@ -45,17 +45,11 @@ RSpec.describe "shelters index page", type: :feature do
 
     visit "/pets"
     have_current_path "/pets"
-    within "#pet-#{lilly.id}" do
+    # within "#pet-#{lilly.id}" do
       expect(page).to have_content('Lilly')
       expect(page).to have_content('4')
       expect(page).to have_content('Female')
-      expect(page).to have_content('Maxxxx Shelter')
-    end
+      expect(page).to have_content('Generic Shelter')
+    # end
   end
 end
-
-# User Story 18, Pet Links
-#
-# As a visitor
-# When I click on the name a pet anywhere on the site
-# Then that link takes me to that Pet's show page
