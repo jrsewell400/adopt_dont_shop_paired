@@ -26,7 +26,7 @@ RSpec.describe "shelter show page", type: :feature do
   fill_in 'rating', with: '0'
   fill_in 'picture', with: 'https://s3.amazonaws.com/lowres.cartoonstock.com/sport-apocalypse-apocalyptic-dead_worlds-dying_worlds-free_time-gra110412_low.jpg'
 
-  click_on('submitter')
+  click_on('Submit')
 
   have_current_path "/shelters/#{shelter_1.id}"
 
