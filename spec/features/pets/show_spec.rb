@@ -2,13 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "shelters index page", type: :feature do
   it "can click all pets" do
-    shelter_1 = Shelter.create(name:       "Shelters 'r Us",
-                         address:       "1042 N Marion St",
-                         city:          "Denver",
-                         state:         "Colorado",
-                          zip:          "80218")
-
-
+    shelter_1 = Shelter.create(name: "Shelters 'r Us",
+                               address: "1042 N Marion St",
+                               city: "Denver",
+                               state: "Colorado",
+                               zip: "80218")
 
     lilly = Pet.create!(image: "pets/golden.jpg",
                        name: "Lilly",
@@ -28,6 +26,7 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content('Female')
     # expect(page).to have_content('Adoptable')
   end
+
   it "shows all pets in the database" do
     shelter_1 = Shelter.create(name:       "Maxxxx Shelter",
                                address:       "1042 N Marion St",
@@ -46,7 +45,6 @@ RSpec.describe "shelters index page", type: :feature do
     visit "/pets"
     have_current_path "/pets"
     within "#pet-#{lilly.id}" do
-      save_and_open_page
       expect(page).to have_content('Lilly')
       expect(page).to have_content('4')
       expect(page).to have_content('Female')
@@ -55,9 +53,3 @@ RSpec.describe "shelters index page", type: :feature do
     end
   end
 end
-
-# User Story 18, Pet Links
-#
-# As a visitor
-# When I click on the name a pet anywhere on the site
-# Then that link takes me to that Pet's show page
