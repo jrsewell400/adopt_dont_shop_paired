@@ -19,7 +19,6 @@ RSpec.describe "As a visitor", type: :feature do
                         )
 
       visit "/shelters/#{shelter_1.id}"
-
       click_link "Create New Review"
       expect(current_path).to eq("/shelters/#{shelter_1.id}/new")
       expect(page).to have_content("Create New Review:")
@@ -27,14 +26,11 @@ RSpec.describe "As a visitor", type: :feature do
       expect(page).to have_content("Rating")
       expect(page).to have_content("Content")
       expect(page).to have_content("Picture")
-
       fill_in 'title', with: 'Best shelter ever!'
       fill_in 'rating', with: 5
       fill_in 'content', with: 'Staff was friendly and they take great care of the pets!'
       fill_in 'picture', with: 'https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C-760x506.jpg'
-
       click_on("Submit Review")
-
       have_current_path "/shelters/#{shelter_1.id}"
       expect(page).to have_content("Best shelter ever!")
       expect(page).to have_content('5')
