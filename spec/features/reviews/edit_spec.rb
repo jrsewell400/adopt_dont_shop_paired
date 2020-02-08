@@ -16,11 +16,8 @@ RSpec.describe "shelter show page", type: :feature do
                             )
 
   visit "/shelters/#{shelter_1.id}"
-
   click_link 'Edit This Review'
-
   have_current_path "/shelters/#{shelter_1.id}/review/edit"
-
   fill_in 'title', with: 'Edited Review Title'
   fill_in 'content', with: 'Edited Review Content'
   fill_in 'rating', with: '0'
@@ -29,7 +26,6 @@ RSpec.describe "shelter show page", type: :feature do
   click_on('Submit')
 
   have_current_path "/shelters/#{shelter_1.id}"
-
   expect(page).to have_content('Edited Review Title')
   expect(page).to have_content('Edited Review Content')
   expect(page).to have_content('0')

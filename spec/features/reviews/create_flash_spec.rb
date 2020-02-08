@@ -18,7 +18,6 @@ RSpec.describe "New Reviews pages", type: :feature do
                         )
 
     visit "/shelters/#{shelter_1.id}/new"
-
     fill_in 'title', with: 'Best shelter ever!'
     fill_in 'rating', with: 5
     fill_in 'content', with: 'Staff was friendly and they take great care of the pets!'

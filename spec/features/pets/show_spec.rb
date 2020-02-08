@@ -2,13 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "shelters index page", type: :feature do
   it "can click all pets" do
-    shelter_1 = Shelter.create(name:       "Shelters 'r Us",
-                         address:       "1042 N Marion St",
-                         city:          "Denver",
-                         state:         "Colorado",
-                          zip:          "80218")
-
-
+    shelter_1 = Shelter.create(name: "Shelters 'r Us",
+                               address: "1042 N Marion St",
+                               city: "Denver",
+                               state: "Colorado",
+                               zip: "80218")
 
     lilly = Pet.create!(image: "pets/golden.jpg",
                        name: "Lilly",
@@ -28,6 +26,7 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content('Female')
     # expect(page).to have_content('Adoptable')
   end
+
   it "shows all pets in the database" do
     shelter_1 = Shelter.create(name:       "Generic Shelter",
                                address:       "1042 N Marion St",
@@ -36,7 +35,7 @@ RSpec.describe "shelters index page", type: :feature do
                                zip:          "80218"
                                )
 
-    lilly = Pet.create(image: "pets/lab.jpg",
+    lilly = Pet.create(image: "https://static.boredpanda.com/blog/wp-content/uploads/2020/01/funny-dog-teeth-toofers-3-5e255a95cd31e__700.jpg",
                        name: "Lilly",
                        age: "4",
                        sex: "Female",
@@ -50,6 +49,7 @@ RSpec.describe "shelters index page", type: :feature do
       expect(page).to have_content('4')
       expect(page).to have_content('Female')
       expect(page).to have_content('Generic Shelter')
-    # end
+      expect(page).to have_css("img[src*='#{lilly.image}']")
+    #end
   end
 end

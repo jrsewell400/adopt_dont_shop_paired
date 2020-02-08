@@ -16,6 +16,7 @@ RSpec.describe "edit pets", type: :feature do
                        sex: "Female",
                        shelter_id: shelter_1.id
                         )
+
     visit "/pets/#{lilly.id}"
     click_link "Update Pet"
     fill_in 'name', with: 'Astro'
@@ -30,6 +31,7 @@ RSpec.describe "edit pets", type: :feature do
     expect(page).to have_content('Male')
     # expect(page).to have_content('Pending Adoption')
   end
+
   it "can edit pets from pet index page" do
     shelter_1 = Shelter.create(name:       "This is a Shelter",
                          address:       "1042 N Marion St",
@@ -49,8 +51,6 @@ RSpec.describe "edit pets", type: :feature do
                        age: "4",
                        sex: "Female",
                        shelter_id: shelter_1.id)
-
-
 
     visit '/pets'
     click_link "Update Pet"
