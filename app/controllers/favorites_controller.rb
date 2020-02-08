@@ -9,7 +9,6 @@ class FavoritesController < ApplicationController
         @pet_favorites << pet
       end
     end
-    # require "pry"; binding.pry
   end
 
   def update

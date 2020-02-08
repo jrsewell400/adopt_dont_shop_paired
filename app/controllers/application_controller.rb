@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :favorite_pet, :quantity
 
-  def favorite_pet
-    @favorites ||= Favorite.new(session[:favorites])
-  end
+  # def favorite_pet
+  #   @favorites ||= Favorite.new(session[:favorites])
+  # end
 
   def quantity
     if session[:favorites]
