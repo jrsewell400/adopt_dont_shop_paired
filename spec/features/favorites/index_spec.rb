@@ -66,7 +66,6 @@ RSpec.describe "As a visitor," do
 
     click_on("Favorite Pet")
     click_on('Number of Favorites:')
-    save_and_open_page
 
     expect(page).to have_content(mojo.name)
     expect(page).to have_css("img[src*='#{mojo.image}']")

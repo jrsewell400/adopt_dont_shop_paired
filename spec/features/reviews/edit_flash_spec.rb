@@ -22,14 +22,14 @@ RSpec.describe "New Reviews pages", type: :feature do
     fill_in 'rating', with: 5
     fill_in 'content', with: 'Staff was friendly and they take great care of the pets!'
     fill_in 'picture', with: 'https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C-760x506.jpg'
-    click_on("submitter")
+    click_on("Submit")
     expect(page).to have_content("Review successfully edited.")
     click_on("Edit This Review")
     fill_in 'title', with: 'Best shelter ever!'
     fill_in 'rating', with: ''
     fill_in 'content', with: 'Staff was friendly and they take great care of the pets!'
     fill_in 'picture', with: 'https://www.rd.com/wp-content/uploads/2017/10/These-Funny-Dog-Videos-Are-the-Break-You-Need-Right-Now_493370860-Jenn_C-760x506.jpg'
-    click_on("submitter")
+    click_on("Submit")
     expect(page).to have_content("Need to fill in a Title, Rating, and Content in order to submit a Shelter Review.")
   end
 end

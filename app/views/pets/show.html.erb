@@ -1,14 +1,13 @@
 <h1>Pet Attributes</h1>
+
 <p>
-    <%= image_tag(@pet.image) %><br/>
+    <%= image_tag(@pet.image, size: "200x200") %><br/>
     <%= @pet.name %><br/>
     <%= @pet.description %><br/>
     <%= @pet.age %><br/>
     <%= @pet.sex %><br/>
     <%= @pet.adopted %><br/>
-    <%= button_to 'Delete', "/pets/#{@pet.id}", method: :delete %>
-    <%= button_to "Favorite Pet", "/favorite/#{@pet.id}", method: :patch %>
-
-</p><br/>
-<a href="/pets/<%= @pet.id %>/edit">Update Pet</a>
-<br/>
+    <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
+    <%= button_to "Favorite Pet", "/favorite/#{@pet.id}", method: :patch %><br/>
+    <%= button_to 'Delete', "/pets/#{@pet.id}", method: :delete %><br/>
+</p></br>

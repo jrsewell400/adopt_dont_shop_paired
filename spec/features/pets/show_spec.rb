@@ -28,7 +28,7 @@ RSpec.describe "shelters index page", type: :feature do
   end
 
   it "shows all pets in the database" do
-    shelter_1 = Shelter.create(name:       "Maxxxx Shelter",
+    shelter_1 = Shelter.create(name:       "Generic Shelter",
                                address:       "1042 N Marion St",
                                city:          "Denver",
                                state:         "Colorado",
@@ -44,12 +44,12 @@ RSpec.describe "shelters index page", type: :feature do
 
     visit "/pets"
     have_current_path "/pets"
-    within "#pet-#{lilly.id}" do
+    # within "#pet-#{lilly.id}" do
       expect(page).to have_content('Lilly')
       expect(page).to have_content('4')
       expect(page).to have_content('Female')
-      expect(page).to have_content('Maxxxx Shelter')
+      expect(page).to have_content('Generic Shelter')
       expect(page).to have_css("img[src*='#{lilly.image}']")
-    end
+    #end
   end
 end

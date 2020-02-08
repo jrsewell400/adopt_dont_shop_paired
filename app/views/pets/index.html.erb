@@ -1,21 +1,15 @@
+<h1>All Pets</h1>
 
-<h1>Pets</h1>
 <% @pets.each do |pet| %>
-<section id="pet-<%= pet.id %>"><br/>
-<a href=<%="/pets/#{pet.id}"%>
-<br/>
-    <p1><%= image_tag(pet.image, size: "200x200")%>
-      <br/>
-      <br/>
-        <br/>
-        <%= pet.name %><br/><a/>
-        Age: <%= pet.age %><br/>
-        Sex: <%= pet.sex %><br/>
-        Shelter: <a href="/shelters/<%= pet.shelter_id %>"><%= @shelters.find(pet.shelter_id)[:name] %><a/><br/>
-
-        <a href="/pets/<%= pet.id %>/edit">Update Pet</a>
-        <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
-  <p1/>
-</section>
-<br/>
+  <section id="#pet-<%= pet.id %>">
+    <p>
+      <%= image_tag(pet.image, size: "200x200") %></br>
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></a></br>
+      Age: <%= pet.age %><br/>
+      Sex: <%= pet.sex %><br/>
+      Shelter: <a href="/shelters/<%= pet.shelter_id %>"><%= @shelters.find(pet.shelter_id)[:name] %></a><br/>
+      <%= link_to 'Update Pet', "/pets/#{pet.id}/edit" %>
+      <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
+    </p><br/>
+  </section>
 <% end %>

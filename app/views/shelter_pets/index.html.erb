@@ -1,16 +1,14 @@
 <h1>Shelter Pets</h1>
 
-
+<section id="shelter_pets">
   <% @pets.each do |pet| %>
-  <% if pet.shelter_id == @shelter.id %>
-
-  <a href=<%="/pets/#{pet.id}"%>
-
-  <p> <%= image_tag(pet.image) %> <br/>
-    <%= pet.name %> <br/></a>
-    <%= pet.age %> <br/>
-    <%= pet.sex %> <br/>
-    <a href="/pets/<%= pet.id %>/edit">Update Pet</a>
-    <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
+    <% if pet.shelter_id == @shelter.id %>
+      <%= image_tag(pet.image, size: "200x200") %><br/>
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br/>
+      <%= pet.age %><br/>
+      <%= pet.sex %><br/>
+      <%= link_to 'Update Pet', "/pets/#{pet.id}/edit" %><br/>
+      <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %><br/>
     <%  end %>
-  <%  end %> </p>
+  <%  end %>
+</section>

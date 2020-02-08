@@ -23,13 +23,13 @@ RSpec.describe "edit pets", type: :feature do
     fill_in 'description', with: 'Little White Dog'
     fill_in 'age', with: '909'
     fill_in 'sex', with: 'Male'
-    fill_in 'adopted', with: 'Pending Adoption'
-    click_on('submitter')
+    # fill_in 'adopted', with: 'Pending Adoption'
+    click_on('Submit')
     expect(page).to have_content('Astro')
     expect(page).to have_content('909')
     expect(page).to have_content('Little White Dog')
     expect(page).to have_content('Male')
-    expect(page).to have_content('Pending Adoption')
+    # expect(page).to have_content('Pending Adoption')
   end
 
   it "can edit pets from pet index page" do
@@ -58,12 +58,12 @@ RSpec.describe "edit pets", type: :feature do
     fill_in 'description', with: 'Little White Dog'
     fill_in 'age', with: '909'
     fill_in 'sex', with: 'Male'
-    fill_in 'adopted', with: 'Pending Adoption'
-    click_on('submitter')
+    # fill_in 'adopted', with: 'Pending Adoption'
+    click_on('Submit')
     expect(page).to have_content('Astro')
     expect(page).to have_content('909')
     expect(page).to have_content('Little White Dog')
     expect(page).to have_content('Male')
-    expect(page).to have_content('Pending Adoption')
+    # expect(page).to have_content('Pending Adoption')
   end
 end

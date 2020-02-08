@@ -23,7 +23,7 @@ RSpec.describe "shelter show page", type: :feature do
   fill_in 'city', with: 'Edited Shelter City'
   fill_in 'state', with: 'Edited Shelter State'
   fill_in 'zip', with: 'Edited Shelter Zip'
-  click_on('submitter')
+  click_on('Submit')
   have_current_path "/shelters/#{shelter_1.id}"
   expect(page).to have_content('Edited Shelter Name')
   expect(page).to have_content('Edited Shelter Address')
@@ -58,7 +58,7 @@ RSpec.describe "shelter show page", type: :feature do
   fill_in 'city', with: 'Edited Shelter City'
   fill_in 'state', with: 'Edited Shelter State'
   fill_in 'zip', with: 'Edited Shelter Zip'
-  click_on('submitter')
+  click_on('Submit')
   have_current_path "/shelters/#{shelter_1.id}"
   expect(page).to have_content('Edited Shelter Name')
   expect(page).to have_content('Edited Shelter Address')

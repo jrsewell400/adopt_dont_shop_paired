@@ -1,11 +1,15 @@
 <h1>Edit This Review</h1>
-<form action="/shelters/<%= @review.shelter_id %>/review/<%= @review.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p>Edit</p>
-  <input type='text' name='title' value="<%= @review.title %>"/><br/>
-  <textarea name='content'><%= @review.content %></textarea><br/>
-  <textarea name='rating'><%= @review.rating %></textarea><br/>
-  <textarea name='picture'><%= @review.picture %></textarea><br/>
-  <input type='submit' name='submitter'/>
-</form>
+
+<section id="edit_review">
+  <%= form_tag "/shelters/#{@review.shelter_id}/review/#{@review.id}", method: :patch do %>
+    <%= label_tag :title %>
+    <%= text_field_tag :title, @review.title %><br/>
+    <%= label_tag :content %>
+    <%= text_field_tag :content, @review.content %><br/>
+    <%= label_tag :rating %>
+    <%= text_field_tag :rating, @review.rating %><br/>
+    <%= label_tag :picture %>
+    <%= url_field_tag :picture, @review.picture %><br/>
+    <%= submit_tag 'Submit' %>
+  <% end %>
+</section>
