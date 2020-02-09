@@ -12,5 +12,5 @@
     <% end %>
   <% end %>
 </section>
-<%= link_to 'Apply to Adopt Favorited Pets', "/applications/new" %>
+<%= link_to 'Apply to Adopt Favorited Pets', "/application/new", method: :get %>
 <%= button_to 'Remove All Favorites', "/favorites/delete_all", method: :delete %>

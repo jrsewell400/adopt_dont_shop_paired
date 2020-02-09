@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "As a visitor," do
-  before :each do 
+  before :each do
       @shelter_1 = Shelter.create(name:       "Shelters 'r Us",
                                 address:       "1042 N Marion St",
                                 city:          "Denver",
@@ -27,6 +27,14 @@ RSpec.describe "As a visitor," do
                         age: "40",
                         sex: "Female",
                         shelter_id: @shelter_2.id)
+
+      @harry = Pet.create(image: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2018/07/31131032/Golden-Retriever-Puppy-Harry-Potter.jpg",
+                        name: "Harry Potter",
+                        description: "The Boy Who Lived",
+                        age: "12",
+                        sex: "Male",
+                        shelter_id: @shelter_2.id)
+
     end
 
     it "I see a favorite indicator in my navigation bar and it shows a count of pets in my favorite list." do
@@ -79,19 +87,56 @@ RSpec.describe "As a visitor," do
       click_on('Number of Favorites:')
       expect(page).to have_content("There are no favorited pets to show!")
   end
-    
-  it "when I've added pets to favorites and I visit favorites index page I see a link for adopting my favorited pets and that link takes me to a new application form" do  
+
+  it "when I've added pets to favorites and I visit favorites index page I see a link for adopting my favorited pets and that link takes me to a new application form" do
       visit "/pets/#{@mojo.id}"
       click_button("Favorite Pet")
       click_on('Number of Favorites:')
       expect(page).to have_link("Apply to Adopt Favorited Pets")
       click_on("Apply to Adopt Favorited Pets")
-      expect(current_path).to eq('/applications/new')
-  end
-  
-  it "on the favorites application, I can select from more than one favorited pet and apply to adopt" do
-    visit "/applications/new"
-    #fill in name, address, etc is next step
+      expect(current_path).to eq('/application/new')
   end
 
+  it "on the favorites application, I can select from more than one favorited pet and apply to adopt" do
+    visit "/pets/#{@mojo.id}"
+    click_button("Favorite Pet")
+    visit "/pets/#{@lilly.id}"
+    click_button("Favorite Pet")
+    visit "/pets/#{@harry.id}"
+    click_button("Favorite Pet")
+    visit "/favorites"
+    expect(page).to have_content("#{@harry.name}")
+    expect(page).to have_content("#{@lilly.name}")
+    expect(page).to have_content("#{@mojo.name}")
+    click_on("Apply to Adopt Favorited Pets")
+    have_current_path "/application/new"
+    save_and_open_page
+    check "#{@lilly.id}"
+    check "pet_ids[#{@mojo.id}]"
+    fill_in 'name', with: 'Jordan'
+    fill_in 'address', with: '1234 Shelters Dr'
+    fill_in 'city', with: 'Denver'
+    fill_in 'state', with: 'CO'
+    fill_in 'zip', with: '80218'
+    fill_in 'phone_number', with: '214 323-3333'
+    fill_in 'description', with: 'I would make a good home for these pets beacuse I have money'
+    click_on('Create Application')
+    expect(page).to have_content("Application for Pets Received!")
+    have_current_path '/favorites'
+    expect(page).to_not have_content("#{@lilly.name}")
+    expect(page).to_not have_content("#{@mojo.name}")
+    expect(page).to_not have_content("#{@harry.name}")
+  end
 end
+# At the top of the form, I can select from the pets of which I've favorited for which I'd like this application to apply towards (can be more than one)
+# When I select one or more pets, and fill in my
+# - Name
+# - Address
+# - City
+# - State
+# - Zip
+# - Phone Number
+# - Description of why I'd make a good home for this/these pet(s)
+# And I click on a button to submit my application
+# I see a flash message indicating my application went through for the pets that were selected
+# And I'm taken back to my favorites page where I no longer see the pets for which I just applied listed as favorites
