@@ -11,7 +11,8 @@ class PetApplicationsController < ApplicationController
   end
 
   def create
-    params[:pet_ids].each do |id, v|
+    # require "pry"; binding.pry
+    params[:@pet_favorites][:pet_ids].each do |id|
       if session[:favorites].has_key?(id)
         session[:favorites].delete(id)
       end
