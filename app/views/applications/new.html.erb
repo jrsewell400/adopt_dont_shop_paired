@@ -1,6 +1,6 @@
 <h1>Apply For Your New Pet!</h1>
   <%= form_tag "/application/new" do %>
-  <%= collection_check_boxes(:@pet_favorites, :pet_ids, @pet_favorites, :id, :name) %>
+  <%= collection_check_boxes(:pet_favorites, :pet_ids, pet_favorites, :id, :name) %>
     <%= label_tag :name %>
     <%= text_field_tag :name %></br></br>
     <%= label_tag :address %>

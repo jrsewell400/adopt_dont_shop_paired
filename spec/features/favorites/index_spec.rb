@@ -127,9 +127,26 @@ RSpec.describe "As a visitor," do
     # expect(page).to_not have_content("#{@mojo.name}")
     # expect(page).to_not have_content("#{@harry.name}")
   end
+  it "When I fail to fill out a field in the applications page, I receive a flash alert" do
+    visit "/pets/#{@harry.id}"
+    click_button("Favorite Pet")
+    visit "/favorites"
+    click_on("Apply to Adopt Favorited Pets")
+    have_current_path "/application/new"
+    fill_in 'address', with: '1234 Shelters Dr'
+    fill_in 'city', with: 'Denver'
+    fill_in 'state', with: 'CO'
+    fill_in 'zip', with: '80218'
+    fill_in 'phone_number', with: '214 323-3333'
+    fill_in 'description', with: 'I would make a good home for these pets beacuse I have money'
+    click_on('Create Application')
+    have_current_path "/application/new"
+    expect(page).to have_content("Need to fill out all fields to submit an application")
+  end
+
 end
-# At the top of the form, I can select from the pets of which I've favorited for which I'd like this application to apply towards (can be more than one)
-# When I select one or more pets, and fill in my
+# As a visitor
+# When I apply for a pet and fail to fill out any of the following:
 # - Name
 # - Address
 # - City
@@ -138,5 +155,5 @@ end
 # - Phone Number
 # - Description of why I'd make a good home for this/these pet(s)
 # And I click on a button to submit my application
-# I see a flash message indicating my application went through for the pets that were selected
-# And I'm taken back to my favorites page where I no longer see the pets for which I just applied listed as favorites
+# I'm redirect back to the new application form to complete the necessary fields
+# And I see a flash message indicating that I must complete the form in order to submit the application
