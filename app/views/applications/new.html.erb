@@ -1,7 +1,13 @@
 <h1>Apply For Your New Pet!</h1>
   <%= form_tag "/application/new" do %>
-  <% binding.pry %>
-  <%= collection_check_boxes(:@pet_favorites, :quantity, @pet_favorites, :id, :name) %>
+    <% @pet_favorites.each do |pet| %>
+      <section id="pet-<%= pet.id %>">
+      <%= label_tag pet.name %>
+      <%= check_box_tag("pet_adopts[]", "#{pet.id}") %>
+    </section>
+    <% end %>
+  </br>
+</br>
     <%= label_tag :name %>
     <%= text_field_tag :name %></br></br>
     <%= label_tag :address %>

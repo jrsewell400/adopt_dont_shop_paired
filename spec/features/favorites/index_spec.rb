@@ -35,6 +35,16 @@ RSpec.describe "As a visitor," do
                         sex: "Male",
                         shelter_id: @shelter_2.id)
 
+      @app1 = Application.create!(pet_favorites: [@harry.id, @mojo.id],
+                        name: "Hermoine Granger",
+                        address: "123 Privet Dr",
+                        city: "London",
+                        state: "Oregon",
+                        zip: "12345",
+                        phone_number: "8505822223",
+                        description: "Need Harry to add to my pet collection",
+                        )
+
     end
 
     it "I see a favorite indicator in my navigation bar and it shows a count of pets in my favorite list." do
@@ -143,17 +153,24 @@ RSpec.describe "As a visitor," do
     have_current_path "/application/new"
     expect(page).to have_content("Need to fill out all fields to submit an application")
   end
+  it "When I create an application it creates a new section on the favorites index page with that animals name showing it has a pending application" do
+    visit "/pets/#{@mojo.id}"
+    click_button("Favorite Pet")
+
+    visit "/pets/#{@lilly.id}"
+    click_button("Favorite Pet")
+    visit "/pets/#{@harry.id}"
+    click_button("Favorite Pet")
+    visit "/favorites"
+    save_and_open_page
+    within "applied" do
+      expect(page).to have_content("#{harry.name}")
+      expect(page).to have_content("#{mojo.name}")
+      expect(page).to_not have_content("#{lilly.name}")
+    end
+  end
 
 end
-# As a visitor
-# When I apply for a pet and fail to fill out any of the following:
-# - Name
-# - Address
-# - City
-# - State
-# - Zip
-# - Phone Number
-# - Description of why I'd make a good home for this/these pet(s)
-# And I click on a button to submit my application
-# I'm redirect back to the new application form to complete the necessary fields
-# And I see a flash message indicating that I must complete the form in order to submit the application
+
+# I see a section on the page that has a list of all of the pets that have at least one application on them
+# Each pet's name is a link to their show page
