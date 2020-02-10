@@ -1,7 +1,7 @@
 class CreateApplications < ActiveRecord::Migration[5.1]
   def change
     create_table :applications do |t|
-      t.[] :pet_favorites
+      t.text :pet_favorites, array: true, default: []
       t.string :name
       t.string :address
       t.string :city
