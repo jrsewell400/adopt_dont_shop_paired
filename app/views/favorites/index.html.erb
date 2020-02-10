@@ -5,11 +5,12 @@
     There are no favorited pets to show!
   <% else @pet_favorites.each do |pet| %>
       <p1>
-      <%= pet.name %><br/>
+      <%= link_to pet.name, "/pets/#{pet.id}" %><br/>
       <%= image_tag(pet.image, size: "200x200") %><br/>
       <%= button_to 'Remove Favorite', "/favorite/#{pet.id}", method: :delete %>
       </p1><br/><br/>
     <% end %>
   <% end %>
 </section>
+<%= link_to 'Apply to Adopt Favorited Pets', "/application/new", method: :get %>
 <%= button_to 'Remove All Favorites', "/favorites/delete_all", method: :delete %>

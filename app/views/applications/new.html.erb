@@ -1,0 +1,21 @@
+<h1>Apply For Your New Pet!</h1>
+  <%= form_tag "/application/new" do %>
+  <% binding.pry %>
+  <%= collection_check_boxes(:@pet_favorites, :quantity, @pet_favorites, :id, :name) %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %></br></br>
+    <%= label_tag :address %>
+    <%= text_field_tag :address %></br></br>
+    <%= label_tag :city %>
+    <%= text_field_tag :city %></br></br>
+    <%= label_tag :state %>
+    <%= text_field_tag :state %></br></br>
+    <%= label_tag :zip %>
+    <%= text_field_tag :zip %></br>
+    <%= label_tag :phone_number %>
+    <%= text_field_tag :phone_number %></br>
+    <%= label_tag :description, "Why you think your home would be a good fit:" %>
+    <%= text_field_tag :description %></br>
+    </br></br>
+    <%= submit_tag 'Create Application' %>
+  <% end %>
