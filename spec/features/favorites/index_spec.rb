@@ -34,17 +34,6 @@ RSpec.describe "As a visitor," do
                         age: "12",
                         sex: "Male",
                         shelter_id: @shelter_2.id)
-
-      @app1 = Application.create!(pet_favorites: [@harry.id, @mojo.id],
-                        name: "Hermoine Granger",
-                        address: "123 Privet Dr",
-                        city: "London",
-                        state: "Oregon",
-                        zip: "12345",
-                        phone_number: "8505822223",
-                        description: "Need Harry to add to my pet collection",
-                        )
-
     end
 
     it "I see a favorite indicator in my navigation bar and it shows a count of pets in my favorite list." do
@@ -120,23 +109,24 @@ RSpec.describe "As a visitor," do
     expect(page).to have_content("#{@mojo.name}")
     click_on("Apply to Adopt Favorited Pets")
     have_current_path "/application/new"
-
-    # find(:css, "pet_id#{@lilly.id}").set(true)
-    # check "#{@lilly.name}"
-    # fill_in 'name', with: 'Jordan'
-    # fill_in 'address', with: '1234 Shelters Dr'
-    # fill_in 'city', with: 'Denver'
-    # fill_in 'state', with: 'CO'
-    # fill_in 'zip', with: '80218'
-    # fill_in 'phone_number', with: '214 323-3333'
-    # fill_in 'description', with: 'I would make a good home for these pets beacuse I have money'
-    # click_on('Create Application')
-    # expect(page).to have_content("Application for Pets Received!")
-    # have_current_path '/favorites'
-    # expect(page).to_not have_content("#{@lilly.name}")
-    # expect(page).to_not have_content("#{@mojo.name}")
-    # expect(page).to_not have_content("#{@harry.name}")
+    within "#pet-#{@lilly.id}" do
+      check :pet_adopts_
+    end
+    fill_in 'name', with: 'Jordan'
+    fill_in 'address', with: '1234 Shelters Dr'
+    fill_in 'city', with: 'Denver'
+    fill_in 'state', with: 'CO'
+    fill_in 'zip', with: '80218'
+    fill_in 'phone_number', with: '214 323-3333'
+    fill_in 'description', with: 'I would make a good home for these pets beacuse I have money'
+    click_on('Create Application')
+    expect(page).to have_content("Application for Pets Received!")
+    have_current_path '/favorites'
+    expect(page).to_not have_content("#{@lilly.name}")
+    expect(page).to have_content("#{@mojo.name}")
+    expect(page).to have_content("#{@harry.name}")
   end
+
   it "When I fail to fill out a field in the applications page, I receive a flash alert" do
     visit "/pets/#{@harry.id}"
     click_button("Favorite Pet")
@@ -153,6 +143,7 @@ RSpec.describe "As a visitor," do
     have_current_path "/application/new"
     expect(page).to have_content("Need to fill out all fields to submit an application")
   end
+
   it "When I create an application it creates a new section on the favorites index page with that animals name showing it has a pending application" do
     visit "/pets/#{@mojo.id}"
     click_button("Favorite Pet")
@@ -162,14 +153,12 @@ RSpec.describe "As a visitor," do
     visit "/pets/#{@harry.id}"
     click_button("Favorite Pet")
     visit "/favorites"
-    save_and_open_page
     within "applied" do
       expect(page).to have_content("#{harry.name}")
       expect(page).to have_content("#{mojo.name}")
       expect(page).to_not have_content("#{lilly.name}")
     end
   end
-
 end
 
 # I see a section on the page that has a list of all of the pets that have at least one application on them
