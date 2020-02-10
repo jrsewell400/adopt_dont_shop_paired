@@ -8,7 +8,6 @@ class ApplicationsController < ApplicationController
 
     application.save
 
-    # require "pry"; binding.pry
     pet_favorites.each do |pet|
       if session[:favorites].has_key?(pet.id)
         session[:favorites].delete(pet.id)
