@@ -1,20 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe "shelters index page", type: :feature do
+  before :each do 
+    @shelter_1 = Shelter.create(name: "Shelters 'r Us",
+                                address: "1042 N Marion St",
+                                city: "Denver",
+                                state: "Colorado",
+                                zip: "80218"
+                               )
+
+    @review1 = Review.create(title: "Good Shelter",
+                             rating: 5,
+                             content: "Fantastic staff and cleanly area for animals.",
+                             picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg"
+                            )
+  end
+  
   it "has a link to create a new shelter" do
-    shelter_1 = Shelter.create(name:       "Shelters 'r Us",
-                         address:       "1042 N Marion St",
-                         city:          "Denver",
-                         state:         "Colorado",
-                         zip:          "80218")
-
-    review1 = Review.create(
-                          title: "Good Shelter",
-                          rating: 5,
-                          content: "Fantastic staff and cleanily area for animals.",
-                          picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg"
-                          )
-
     visit "/shelters"
     have_current_path "/shelters"
     click_link 'New Shelter'
@@ -26,24 +28,8 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content("Zip")
     expect(page).to have_button("Create Shelter")
   end
-end
 
-RSpec.describe "new shelters page", type: :feature do
   it "has a form to create a new shelter" do
-    shelter_1 = Shelter.create(name:       "Shelters 'r Us",
-                         address:       "1042 N Marion St",
-                         city:          "Denver",
-                         state:         "Colorado",
-                         zip:          "80218")
-
-    review1 = Review.create(
-                        title: "Good Shelter",
-                        rating: 5,
-                        content: "Fantastic staff and cleanily area for animals.",
-                        picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg",
-                        shelter_id: shelter_1.id
-                        )
-
     visit "/shelters"
     click_on("New Shelter")
     have_current_path "/shelters/new"
@@ -61,7 +47,7 @@ RSpec.describe "new shelters page", type: :feature do
     have_current_path "/shelters"
     expect(page).to have_content('New Shelter 36')
     click_on("New Shelter 36")
-    have_current_path "/shelters/#{shelter_1.id}"
+    have_current_path "/shelters/#{@shelter_1.id}"
     expect(page).to have_content('New Shelter 36')
     expect(page).to have_content('1234 Rabbit ln')
     expect(page).to have_content('Rabbitville')
