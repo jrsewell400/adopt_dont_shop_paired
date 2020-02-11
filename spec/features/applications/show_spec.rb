@@ -71,4 +71,3 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     have_current_path "/application/#{@app1.id}"
   end
 end
-# Each applicant's name is a link to their application show page
