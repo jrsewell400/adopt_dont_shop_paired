@@ -46,10 +46,21 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
                                 phone_number: "972 333-5444",
                                 description: "My name is Johnny, so my home is nice.")
 
+    @app2 = Application.create(name: "Johnny Bravo",
+                               address: "Bravo St",
+                               city: "Brova",
+                                state: "CA",
+                                zip: "10000",
+                                phone_number: "972 828-9080",
+                                description: "Do the Johnny Bravo!")
+
     @pet_app1 = ApplicationPet.create(application_id: @app1.id,
                                       pet_id: @harry.id)
 
     @pet_app2 = ApplicationPet.create(application_id: @app1.id,
+                                      pet_id: @mojo.id)
+
+    @pet_app3 = ApplicationPet.create(application_id: @app2.id,
                                       pet_id: @mojo.id)
     end
   it "I should see all of the applicant information" do
@@ -85,6 +96,15 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     expect(page).to have_content("Adoption Pending")
     expect(page).to have_content("Mojo Jojo is on hold for John Doe")
   end
+  it "When a pet has more than one application for them and one has already been approved, you cannot approve any more applications" do
+    visit "/application/#{@app1.id}"
+    click_on("Approve #{@mojo.name}")
+    visit "/application/#{@app2.id}"
+    expect(page).to_not have_content("Approve #{@mojo.name}")
+    visit "/application/#{@app2.id}"
+    expect(page).to have_content(@app2.name)
+    save_and_open_page
+  end
 end
 
-# And I see text on the page that says who this pet is on hold for (Ex: "On hold for John Smith", given John Smith is the name on the application that was just accepted)
+# (This can be done by either taking away the option to approve the application, or having a flash message pop up saying that no more applications can be approved for this pet at this time)
