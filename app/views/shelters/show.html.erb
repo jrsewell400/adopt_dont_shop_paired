@@ -8,10 +8,10 @@
     </p1>
 </section>
 
-<section id="shelter_reviews">
-  <h2>See reviews below:</h2>
-    <p2>
-      <% @reviews.each do |review| %>
+<h2>See reviews below:</h2>
+  <p2>
+    <% @reviews.each do |review| %>
+      <section id="review-<%= review.id %>">  
         <% if review.shelter_id == @shelter.id %>
           Title: <%= review.title %><br/>
           Content: <%= review.content %><br/>
@@ -20,16 +20,16 @@
           <%= link_to 'Edit This Review', "/shelters/#{review.shelter_id}/review/#{review.id}/edit" %></br>
           <%= link_to 'Delete This Review', "/shelters/#{review.shelter_id}/review/#{review.id}/delete" %></br>
         <% end %>
-      <% end %>
-    </p2>
-</section>
+      </section>
+    <% end %>
+  </p2>
 
-<section id="shelter_options">
- <h3>Shelter Options:</h3>
-  <%= link_to 'Create New Review', "/shelters/#{@shelter.id}/new"%><br/>
-  <%= link_to 'Pets', "/shelters/#{@shelter.id}/pets" %><br/>
-  <%= link_to 'New Pet', "/shelters/#{@shelter.id}/pets/new" %><br/>
-  <%= link_to 'Edit This Shelter', "/shelters/#{@shelter.id}/edit" %><br/>
-  <%= link_to 'Return To Shelters Index Page', '/shelters' %><br/>
-  <%= button_to 'Delete', "/shelters/#{@shelter.id}", method: :delete %>
-</section>
+<h3>Shelter Options:</h3>
+  <section id="shelter_options">
+    <%= link_to 'Create New Review', "/shelters/#{@shelter.id}/new"%><br/>
+    <%= link_to 'Pets', "/shelters/#{@shelter.id}/pets" %><br/>
+    <%= link_to 'New Pet', "/shelters/#{@shelter.id}/pets/new" %><br/>
+    <%= link_to 'Edit This Shelter', "/shelters/#{@shelter.id}/edit" %><br/>
+    <%= link_to 'Return To Shelters Index Page', '/shelters' %><br/>
+    <%= button_to 'Delete', "/shelters/#{@shelter.id}", method: :delete %>
+  </section>
