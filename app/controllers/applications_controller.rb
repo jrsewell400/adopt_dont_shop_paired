@@ -14,6 +14,10 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
   end
 
+  def index
+    
+  end
+
   def create
     @pet_ids = params[:pet_ids]
 

@@ -63,6 +63,12 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     click_on(@mojo.name)
     have_current_path "/pets/#{@mojo.id}"
   end
+  it "on pets show page, I see a link to view all applications for this pet" do
+    visit "/pets/#{@mojo.id}"
+    click_on("View Applications")
+    expect(page).to have_content(@app1.name)
+    click_on(@app1.name)
+    have_current_path "/application/#{@app1.id}"
+  end
 end
-
-# - names of all pet's that this application is for (all names of pets should be links to their show page)
+# Each applicant's name is a link to their application show page
