@@ -19,6 +19,7 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
                       description: "Black Dog",
                       age: "4",
                       sex: "Female",
+                      adopted: "Adoptable",
                       shelter_id: @shelter_1.id)
 
     @mojo = Pet.create(image: "https://files.brief.vet/2019-07/pelvic-limb_HEADER.png",
@@ -26,6 +27,7 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
                       description: "Annoying little chomper",
                       age: "40",
                       sex: "Female",
+                      adopted: "Adoptable",
                       shelter_id: @shelter_2.id)
 
     @harry = Pet.create(image: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2018/07/31131032/Golden-Retriever-Puppy-Harry-Potter.jpg",
@@ -33,6 +35,7 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
                       description: "The Boy Who Lived",
                       age: "12",
                       sex: "Male",
+                      adopted: "Adoptable",
                       shelter_id: @shelter_2.id)
 
     @app1 = Application.create(name: "John Doe",
@@ -73,9 +76,15 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
   it "When I visit a pets application page and there is no application for them, I see an message indicating just that" do
     visit "/pets/#{@lilly.id}"
     click_on("View Applications")
-    expect(page).to have_content("This Pet has no applications yet.")  
+    expect(page).to have_content("This Pet has no applications yet.")
+  end
+  it "When I visit an applications show page there are links to approve the application" do
+    visit "/application/#{@app1.id}"
+    click_on("Approve #{@mojo.name}")
+    have_current_path "/pets/#{@lilly.id}"
+    expect(page).to have_content("Adoption Pending")
+    expect(page).to have_content("Mojo Jojo is on hold for John Doe")
   end
 end
 
-# When I visit a pet applications index page for a pet that has no applications on them
-# I see a message saying that there are no applications for this pet yet
+# And I see text on the page that says who this pet is on hold for (Ex: "On hold for John Smith", given John Smith is the name on the application that was just accepted)

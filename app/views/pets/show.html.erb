@@ -15,4 +15,9 @@
     <% end %>
     <%= button_to 'Delete', "/pets/#{@pet.id}", method: :delete %><br/>
     <%= link_to 'View Applications', "/application/#{@pet.id}/index" %>
+    <% @pet.applications.each do |app| %>
+      <% if @pet.adopted == "Adoption Pending" %>
+        <%= "#{@pet.name} is on hold for #{app.name}" %>
+      <% end %>
+    <% end %>
 </p></br>
