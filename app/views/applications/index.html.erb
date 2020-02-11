@@ -1,0 +1,5 @@
+
+<% @applications.each do |app| %>
+  <section id="app-<%= app.id%>">
+  <%= link_to app.name, "/application/#{app.id}" %>
+<% end %>

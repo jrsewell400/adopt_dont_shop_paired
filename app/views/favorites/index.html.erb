@@ -16,7 +16,9 @@
 <br/></br>
 <section id="applied">
 <h2>Favorited Pets with Pending Applications</h2>
-  <% @view_pets.each do |pet| %>
+  <% @pets.each do |pet| %>
+  <% if !pet.applications.empty? %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></br>
+    <% end %>
   <% end %>
 </section>
