@@ -23,7 +23,7 @@ lola = Pet.create!(image: "pets/lab.jpg",
            age: "4",
            sex: "Female",
            shelter_id: shelter_1.id,
-           adopted: "adoptable"
+           adopted: "Adoptable"
            )
 
 jamie = Pet.create!(image: "pets/golden.jpg",
@@ -41,7 +41,7 @@ lilly = Pet.create!(image: "pets/lilly.jpeg",
                     age: "4",
                     sex: "Female",
                     shelter_id: shelter_2.id,
-                    adopted: "Adoption Pending"
+                    adopted: "Adoptable"
                         )
 
 review1 = Review.create(

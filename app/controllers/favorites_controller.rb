@@ -2,12 +2,19 @@ class FavoritesController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @pets = Pet.all
+    pets = Pet.all
+    pet_adopts = ApplicationPet.all
+    @view_pets = Array.new
     @pet_favorites = Array.new
-    @pets.each do |pet|
+    pets.each do |pet|
       if session[:favorites] && session[:favorites].has_key?(pet.id.to_s)
         @pet_favorites << pet
       end
+      pet_adopts.each do |app|
+        if app.pet_id == pet.id
+           @view_pets << pet
+         end
+       end
     end
   end
 
@@ -30,5 +37,10 @@ class FavoritesController < ApplicationController
     flash[:notice] = "#{pet.name} has been removed from favorites."
 
     redirect_to "/pets/#{params[:pet_id]}"
+  end
+
+  def destroy_all
+    session[:favorites].clear
+    redirect_to "/favorites"
   end
 end
