@@ -10,5 +10,7 @@
 </ul> Pets to be adopted: </br>
   <% @application.pets.each do |pet| %>
   <%= link_to pet.name, "/pets/#{pet.id}" %>
+  <%= link_to "Approve #{pet.name}", "/pets/#{pet.id}/application/#{@application.id}/approve", method: :patch %>
   <% end %>
+
 </p1>

@@ -22,8 +22,13 @@ class ApplicationsController < ApplicationController
        flash[:notice] = "This Pet has no applications yet."
      end
    end
+  end
 
-
+  def update
+    pet = Pet.find(params[:id])
+    pet.update_column(:adopted, 'Adoption Pending')
+    @application = Application.find(params[:app_id])
+    redirect_to "/pets/#{params[:id]}"
   end
 
   def create
