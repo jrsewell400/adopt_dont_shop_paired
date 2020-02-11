@@ -7,5 +7,9 @@
   <li><%= @application.zip %></li></br>
   <li><%= @application.phone_number %></li></br>
   <li><%= @application.description %></li></br>
-</ul>
+</ul> Pets to be adopted: </br>
+  <% @view_pets.each do |pet| %>
+  <%= pet.name %>
+  <% end %>
+
 </p1>

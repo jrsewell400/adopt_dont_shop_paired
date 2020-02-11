@@ -42,6 +42,12 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
                                 zip: "54545",
                                 phone_number: "972 333-5444",
                                 description: "My name is Johnny, so my home is nice.")
+
+    @pet_app1 = ApplicationPet.create(application_id: @app1.id,
+                                      pet_id: @harry.id)
+
+    @pet_app2 = ApplicationPet.create(application_id: @app1.id,
+                                      pet_id: @mojo.id)
     end
   it "I should see all of the applicant information" do
     visit "/application/#{@app1.id}"
@@ -52,6 +58,8 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     expect(page).to have_content(@app1.zip)
     expect(page).to have_content(@app1.phone_number)
     expect(page).to have_content(@app1.description)
+    expect(page).to have_content(@mojo.name)
+    expect(page).to have_content(@harry.name)
   end
 end
 

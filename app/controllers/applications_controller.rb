@@ -12,6 +12,17 @@ class ApplicationsController < ApplicationController
 
   def show
     @application = Application.find(params[:id])
+    @view_pets = Array.new
+    apps = ApplicationPet.all
+    pet_apps = Array.new
+    apps.each do |app|
+      if app.application_id == @application.id
+        pet_apps << app.pet_id
+      end
+    end
+    pet_apps.each do |pet_id|
+      @view_pets << Pet.find(pet_id)
+    end
   end
 
   def create
