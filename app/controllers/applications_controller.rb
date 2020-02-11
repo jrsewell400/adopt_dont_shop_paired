@@ -11,15 +11,22 @@ class ApplicationsController < ApplicationController
   end
 
   def create
-    application = Application.create(strong_params)
-  if params[:pet_adopts]
-    params[:pet_adopts].each do |pet_id|
+    @pet_ids = params[:pet_ids]
+
+    application = Application.create!(strong_params)
+
+    if params[:pet_adopts]
+      params[:pet_adopts].each do |pet_id|
       if session[:favorites].has_key?(pet_id)
         session[:favorites].delete(pet_id)
       end
     end
   end
 
+  application_pet = params[:pet_adopts].each do |pet_id|
+                    ApplicationPet.create(pet_id: pet_id.to_i,
+                    application_id: application.id)
+                    end
     if application.save
       flash[:notice] = "Application for Pets Received!"
     else

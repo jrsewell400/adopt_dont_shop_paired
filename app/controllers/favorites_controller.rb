@@ -2,13 +2,19 @@ class FavoritesController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
-    @pets = Pet.all
-    @applications = Application.all
+    pets = Pet.all
+    pet_adopts = ApplicationPet.all
+    @view_pets = Array.new
     @pet_favorites = Array.new
-    @pets.each do |pet|
+    pets.each do |pet|
       if session[:favorites] && session[:favorites].has_key?(pet.id.to_s)
         @pet_favorites << pet
       end
+      pet_adopts.each do |app|
+        if app.pet_id == pet.id
+           @view_pets << pet
+         end
+       end
     end
   end
 
