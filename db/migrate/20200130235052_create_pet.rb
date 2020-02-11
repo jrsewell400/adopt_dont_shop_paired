@@ -6,7 +6,7 @@ class CreatePet < ActiveRecord::Migration[5.1]
       t.integer :age
       t.string :description
       t.string :sex
-      t.string :adopted
+      t.string :adopted 
     end
   end
 end
