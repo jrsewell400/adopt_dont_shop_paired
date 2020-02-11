@@ -9,7 +9,7 @@
   <li><%= @application.description %></li></br>
 </ul> Pets to be adopted: </br>
   <% @view_pets.each do |pet| %>
-  <%= pet.name %>
+  <%= link_to pet.name, "/pets/#{pet.id}" %>
   <% end %>
 
 </p1>

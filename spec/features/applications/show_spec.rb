@@ -60,6 +60,8 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     expect(page).to have_content(@app1.description)
     expect(page).to have_content(@mojo.name)
     expect(page).to have_content(@harry.name)
+    click_on(@mojo.name)
+    have_current_path "/pets/#{@mojo.id}"
   end
 end
 
