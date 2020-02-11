@@ -16,6 +16,14 @@ class ApplicationsController < ApplicationController
 
   def index
     @applications = Application.all
+
+    @applications.each do |app|
+     if !app.pets.include?(Pet.find(params[:id]))
+       flash[:notice] = "This Pet has no applications yet."
+     end
+   end
+
+
   end
 
   def create

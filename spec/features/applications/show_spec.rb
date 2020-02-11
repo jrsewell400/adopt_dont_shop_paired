@@ -70,4 +70,12 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     click_on(@app1.name)
     have_current_path "/application/#{@app1.id}"
   end
+  it "When I visit a pets application page and there is no application for them, I see an message indicating just that" do
+    visit "/pets/#{@lilly.id}"
+    click_on("View Applications")
+    expect(page).to have_content("This Pet has no applications yet.")  
+  end
 end
+
+# When I visit a pet applications index page for a pet that has no applications on them
+# I see a message saying that there are no applications for this pet yet
