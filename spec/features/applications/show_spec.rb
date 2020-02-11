@@ -63,6 +63,7 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     @pet_app3 = ApplicationPet.create(application_id: @app2.id,
                                       pet_id: @mojo.id)
     end
+
   it "I should see all of the applicant information" do
     visit "/application/#{@app1.id}"
     expect(page).to have_content(@app1.name)
@@ -103,8 +104,19 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     expect(page).to_not have_content("Approve #{@mojo.name}")
     visit "/application/#{@app2.id}"
     expect(page).to have_content(@app2.name)
-    save_and_open_page
+    visit "/application/#{@app1.id}"
+    expect(page).to_not have_content("Approve #{@mojo.name}")
+    click_on("Revoke #{@mojo.name}")
+    have_current_path "/application/#{@app1.id}"
+    expect(page).to have_content("Approve #{@mojo.name}")
+    visit "/pets/#{@mojo.id}"
+    expect(page).to have_content("Adoptable")
   end
 end
 
-# (This can be done by either taking away the option to approve the application, or having a flash message pop up saying that no more applications can be approved for this pet at this time)
+# When I click on the link to unapprove the application
+# I'm taken back to that applications show page
+# And I can see the button to approve the application for that pet again
+# When I go to that pets show page
+# I can see that the pets adoption status is now back to adoptable
+# And that pet is not on hold anymore

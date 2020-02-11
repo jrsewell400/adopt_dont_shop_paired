@@ -12,6 +12,8 @@
   <%= link_to pet.name, "/pets/#{pet.id}" %>
   <% if pet.adopted == 'Adoptable' %>
     <%= link_to "Approve #{pet.name}", "/pets/#{pet.id}/application/#{@application.id}/approve", method: :patch %>
+  <% else %>
+    <%= link_to "Revoke #{pet.name}", "/pets/#{pet.id}/application/#{@application.id}/revoke", method: :patch %>
   <% end %>
   <% end %>
 
