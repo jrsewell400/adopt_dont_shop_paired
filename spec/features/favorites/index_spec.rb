@@ -2,49 +2,38 @@ require 'rails_helper'
 
 RSpec.describe "As a visitor," do
   before :each do
-      @shelter_1 = Shelter.create(name:       "Shelters 'r Us",
-                                address:       "1042 N Marion St",
-                                city:          "Denver",
-                                state:         "Colorado",
-                                zip:          "80218")
+    @shelter_1 = Shelter.create(name:       "Shelters 'r Us",
+                              address:       "1042 N Marion St",
+                              city:          "Denver",
+                              state:         "Colorado",
+                              zip:          "80218")
 
-      @shelter_2 = Shelter.create(name:       "My Other Shelter",
-                                address:       "15580 Quorum Dr",
-                                city:          "Dallas",
-                                state:         "Texas",
-                                zip:          "75001")
+    @shelter_2 = Shelter.create(name:       "My Other Shelter",
+                              address:       "15580 Quorum Dr",
+                              city:          "Dallas",
+                              state:         "Texas",
+                              zip:          "75001")
 
-      @lilly = Pet.create(image: "https://thehappypuppysite.com/wp-content/uploads/2019/03/How-Long-Do-Labrador-Retriever-Live-long.jpg",
-                        name: "Lilly",
-                        description: "Black Dog",
-                        age: "4",
-                        sex: "Female",
-                        shelter_id: @shelter_1.id)
+    @lilly = Pet.create(image: "https://thehappypuppysite.com/wp-content/uploads/2019/03/How-Long-Do-Labrador-Retriever-Live-long.jpg",
+                      name: "Lilly",
+                      description: "Black Dog",
+                      age: "4",
+                      sex: "Female",
+                      shelter_id: @shelter_1.id)
 
-      @mojo = Pet.create(image: "https://files.brief.vet/2019-07/pelvic-limb_HEADER.png",
-                        name: "Mojo Jojo",
-                        description: "Annoying little chomper",
-                        age: "40",
-                        sex: "Female",
-                        shelter_id: @shelter_2.id)
+    @mojo = Pet.create(image: "https://files.brief.vet/2019-07/pelvic-limb_HEADER.png",
+                      name: "Mojo Jojo",
+                      description: "Annoying little chomper",
+                      age: "40",
+                      sex: "Female",
+                      shelter_id: @shelter_2.id)
 
-      @harry = Pet.create(image: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2018/07/31131032/Golden-Retriever-Puppy-Harry-Potter.jpg",
-                        name: "Harry Potter",
-                        description: "The Boy Who Lived",
-                        age: "12",
-                        sex: "Male",
-                        shelter_id: @shelter_2.id)
-
-      @app1 = Application.create!(pet_favorites: [@harry.id, @mojo.id],
-                        name: "Hermoine Granger",
-                        address: "123 Privet Dr",
-                        city: "London",
-                        state: "Oregon",
-                        zip: "12345",
-                        phone_number: "8505822223",
-                        description: "Need Harry to add to my pet collection",
-                        )
-
+    @harry = Pet.create(image: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2018/07/31131032/Golden-Retriever-Puppy-Harry-Potter.jpg",
+                      name: "Harry Potter",
+                      description: "The Boy Who Lived",
+                      age: "12",
+                      sex: "Male",
+                      shelter_id: @shelter_2.id)
     end
 
     it "I see a favorite indicator in my navigation bar and it shows a count of pets in my favorite list." do
@@ -99,78 +88,11 @@ RSpec.describe "As a visitor," do
   end
 
   it "when I've added pets to favorites and I visit favorites index page I see a link for adopting my favorited pets and that link takes me to a new application form" do
-      visit "/pets/#{@mojo.id}"
-      click_button("Favorite Pet")
-      click_on('Number of Favorites:')
-      expect(page).to have_link("Apply to Adopt Favorited Pets")
-      click_on("Apply to Adopt Favorited Pets")
-      expect(current_path).to eq('/application/new')
-  end
-
-  it "on the favorites application, I can select from more than one favorited pet and apply to adopt" do
     visit "/pets/#{@mojo.id}"
     click_button("Favorite Pet")
-    visit "/pets/#{@lilly.id}"
-    click_button("Favorite Pet")
-    visit "/pets/#{@harry.id}"
-    click_button("Favorite Pet")
-    visit "/favorites"
-    expect(page).to have_content("#{@harry.name}")
-    expect(page).to have_content("#{@lilly.name}")
-    expect(page).to have_content("#{@mojo.name}")
+    click_on('Number of Favorites:')
+    expect(page).to have_link("Apply to Adopt Favorited Pets")
     click_on("Apply to Adopt Favorited Pets")
-    have_current_path "/application/new"
-
-    # find(:css, "pet_id#{@lilly.id}").set(true)
-    # check "#{@lilly.name}"
-    # fill_in 'name', with: 'Jordan'
-    # fill_in 'address', with: '1234 Shelters Dr'
-    # fill_in 'city', with: 'Denver'
-    # fill_in 'state', with: 'CO'
-    # fill_in 'zip', with: '80218'
-    # fill_in 'phone_number', with: '214 323-3333'
-    # fill_in 'description', with: 'I would make a good home for these pets beacuse I have money'
-    # click_on('Create Application')
-    # expect(page).to have_content("Application for Pets Received!")
-    # have_current_path '/favorites'
-    # expect(page).to_not have_content("#{@lilly.name}")
-    # expect(page).to_not have_content("#{@mojo.name}")
-    # expect(page).to_not have_content("#{@harry.name}")
+    expect(current_path).to eq('/application/new')
   end
-  it "When I fail to fill out a field in the applications page, I receive a flash alert" do
-    visit "/pets/#{@harry.id}"
-    click_button("Favorite Pet")
-    visit "/favorites"
-    click_on("Apply to Adopt Favorited Pets")
-    have_current_path "/application/new"
-    fill_in 'address', with: '1234 Shelters Dr'
-    fill_in 'city', with: 'Denver'
-    fill_in 'state', with: 'CO'
-    fill_in 'zip', with: '80218'
-    fill_in 'phone_number', with: '214 323-3333'
-    fill_in 'description', with: 'I would make a good home for these pets beacuse I have money'
-    click_on('Create Application')
-    have_current_path "/application/new"
-    expect(page).to have_content("Need to fill out all fields to submit an application")
-  end
-  it "When I create an application it creates a new section on the favorites index page with that animals name showing it has a pending application" do
-    visit "/pets/#{@mojo.id}"
-    click_button("Favorite Pet")
-
-    visit "/pets/#{@lilly.id}"
-    click_button("Favorite Pet")
-    visit "/pets/#{@harry.id}"
-    click_button("Favorite Pet")
-    visit "/favorites"
-    save_and_open_page
-    within "applied" do
-      expect(page).to have_content("#{harry.name}")
-      expect(page).to have_content("#{mojo.name}")
-      expect(page).to_not have_content("#{lilly.name}")
-    end
-  end
-
 end
-
-# I see a section on the page that has a list of all of the pets that have at least one application on them
-# Each pet's name is a link to their show page

@@ -1,5 +1,4 @@
 <h1>Favorited Pets</h1>
-
 <section id="pet_favorites">
   <% if @pet_favorites.empty? %>
     There are no favorited pets to show!
@@ -17,5 +16,9 @@
 <br/></br>
 <section id="applied">
 <h2>Favorited Pets with Pending Applications</h2>
-
-</section
+  <% @pets.each do |pet| %>
+  <% if !pet.applications.empty? %>
+    <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></br>
+    <% end %>
+  <% end %>
+</section>

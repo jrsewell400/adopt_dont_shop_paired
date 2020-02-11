@@ -3,7 +3,6 @@ class FavoritesController < ApplicationController
 
   def index
     @pets = Pet.all
-    @applications = Application.all
     @pet_favorites = Array.new
     @pets.each do |pet|
       if session[:favorites] && session[:favorites].has_key?(pet.id.to_s)

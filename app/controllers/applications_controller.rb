@@ -10,22 +10,31 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def show
+    @application = Application.find(params[:id])
+  end
+
   def create
-    application = Application.create(strong_params)
+    @pet_ids = params[:pet_ids]
 
-    application.save
+    application = Application.create!(strong_params)
 
-    pet_favorites.each do |pet|
-      if session[:favorites].has_key?(pet.id)
-        session[:favorites].delete(pet.id)
+    if params[:pet_adopts]
+      params[:pet_adopts].each do |pet_id|
+        if session[:favorites].has_key?(pet_id)
+          session[:favorites].delete(pet_id)
+        end
       end
     end
-
-    if application.save
-      flash[:notice] = "Application for Pets Received!"
-    else
-      flash[:notice] = "Need to fill out all fields to submit an application"
-    end
+    application_pet = params[:pet_adopts].each do |pet_id|
+                    ApplicationPet.create(pet_id: pet_id.to_i,
+                    application_id: application.id)
+                    end
+      if application.save
+        flash[:notice] = "Application for Pets Received!"
+      else
+        flash[:notice] = "Need to fill out all fields to submit an application"
+      end
     redirect_to '/favorites'
   end
   private
