@@ -22,7 +22,6 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
-
   end
 
   def edit
@@ -40,6 +39,9 @@ class PetsController < ApplicationController
 
   def destroy
     Pet.destroy(params[:id])
+    if session[:favorites] && session[:favorites].include?(params[:id])
+      session[:favorites].delete(params[:id])
+    end 
     redirect_to '/pets'
   end
 
