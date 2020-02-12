@@ -13,7 +13,9 @@ class Shelter < ApplicationRecord
     reviews.each do |review|
       count += review.rating
     end
-    count / reviews.length.round(2)
+    if !reviews.empty?
+      count / reviews.length.round(2) 
+    end
   end
 
   def num_apps
