@@ -3,7 +3,6 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
     @shelters = Shelter.all
-    @favorite = Favorite.new(session[:favorites])
   end
 
   def new

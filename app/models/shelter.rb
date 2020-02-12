@@ -14,7 +14,7 @@ class Shelter < ApplicationRecord
       count += review.rating
     end
     if !reviews.empty?
-      count / reviews.length.round(2) 
+      count / reviews.length.round(2)
     end
   end
 
@@ -29,5 +29,15 @@ class Shelter < ApplicationRecord
       end
     end
       pet_ids.uniq.count
+  end
+
+  def applications?
+    app_pets = []
+    pets.each do |pet|
+      if !pet.applications.empty?
+        app_pets << pet
+      end
+    end
+    app_pets.empty?
   end
 end

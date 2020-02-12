@@ -5,12 +5,10 @@
     <section id="shelter-<%= shelter.id %>", align="center">
       <h2><%= link_to "#{shelter.name}", "/shelters/#{shelter.id}" %></h2>
       <%= link_to 'Edit This Shelter', "/shelters/#{shelter.id}/edit" %></br>
-      <% shelter.pets.each do |pet| %>
-        <% if !pet.applications.empty? %>
-          <% p "Can not Delete this shelter." %>
-        <% else %>
-          <%= button_to 'Delete', "/shelters/#{shelter.id}", method: :delete %>
-        <% end %>
+      <% if shelter.applications? %>
+        <%= button_to 'Delete', "/shelters/#{shelter.id}", method: :delete %>
+      <% else %>
+      <% "Can not Delete this shelter." %>
       <% end %>
       <%= link_to 'New Shelter', "/shelters/new" %>
       <br/></br>
