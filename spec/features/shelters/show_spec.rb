@@ -82,8 +82,15 @@ RSpec.describe "shelters index page", type: :feature do
 
   it "can click all shelters" do
     visit "/shelters"
-    click_on "Shelters 'r Us"
+    within "#shelter-#{@shelter_1.id}" do
+      click_on "Shelters 'r Us"
+    end
     have_current_path "/shelters/#{@shelter_1.id}"
+    visit "/shelters"
+    within "#shelter-#{@shelter_2.id}" do
+      click_on "My Other Shelter"
+    end
+    have_current_path "/shelters/#{@shelter_2.id}"
   end
 
   it "can see all attributes of a shelter" do

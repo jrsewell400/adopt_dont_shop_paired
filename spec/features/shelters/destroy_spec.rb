@@ -16,13 +16,6 @@ RSpec.describe "shelter show page", type: :feature do
                              shelter_id: @shelter_1.id
                             )
   end
-  
-  it "can update shelters" do
-    visit '/shelters'
-    click_on('Delete This Shelter')
-    have_current_path "/shelters"
-    expect(page).to_not have_content('This is a Shelter')
-  end
 
   it "can delete individual shelters" do
     visit "/shelters"

@@ -1,24 +1,26 @@
 <h1>Favorited Pets</h1>
-<section id="pet_favorites">
+
   <% if @pet_favorites.empty? %>
     There are no favorited pets to show!
   <% else @pet_favorites.each do |pet| %>
+    <section id="pet-<%= pet.id %>">
       <p1>
       <%= link_to pet.name, "/pets/#{pet.id}" %><br/>
       <%= image_tag(pet.image, size: "200x200") %><br/>
       <%= button_to 'Remove Favorite', "/favorite/#{pet.id}", method: :delete %>
       </p1><br/><br/>
+    </section>  
     <% end %>
   <% end %>
-</section>
 <%= link_to 'Apply to Adopt Favorited Pets', "/application/new", method: :get %>
 <%= button_to 'Remove All Favorites', "/favorites/delete_all", method: :delete %>
 <br/></br>
+
 <section id="applied">
-<h2>Favorited Pets with Pending Applications</h2>
-  <% @pets.each do |pet| %>
-  <% if !pet.applications.empty? %>
-    <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></br>
+  <h2>Favorited Pets with Pending Applications</h2>
+   <% @pets.each do |pet| %>
+    <% if !pet.applications.empty? %>
+     <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></br>
+     <% end %>
     <% end %>
-  <% end %>
 </section>
