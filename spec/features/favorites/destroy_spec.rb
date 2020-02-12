@@ -21,32 +21,30 @@ RSpec.describe "On a pets show page," do
                         sex: "Female",
                         shelter_id: @shelter_1.id)
   end
+  
   it "If a pet has been favorited, I see a button to remove it from favorites." do
-
-  visit "/pets/#{@lilly.id}"
-  click_button("Favorite Pet")
-  expect(page).to have_selector(:link_or_button, 'Remove Pet From Favorites')
-  expect(page).to_not have_selector(:link_or_button, 'Favorite Pet')
-  click_on("Remove Pet From Favorites")
-  have_current_path "/pets/#{@lilly.id}"
-  expect(page).to have_content("#{@lilly.name} has been removed from favorites.")
-  expect(page).to have_selector(:link_or_button, 'Favorite Pet')
-  expect(page).to have_content("Number of Favorites: 0")
+    visit "/pets/#{@lilly.id}"
+    click_button("Favorite Pet")
+    expect(page).to have_selector(:link_or_button, 'Remove Pet From Favorites')
+    expect(page).to_not have_selector(:link_or_button, 'Favorite Pet')
+    click_on("Remove Pet From Favorites")
+    have_current_path "/pets/#{@lilly.id}"
+    expect(page).to have_content("#{@lilly.name} has been removed from favorites.")
+    expect(page).to have_selector(:link_or_button, 'Favorite Pet')
+    expect(page).to have_content("Number of Favorites: 0")
   end
 
   describe "As a visitor" do
     it "When I favorite a pet, and visit the favorites index page I see a link to remove that pet from favorites" do
-
-    visit "/pets/#{@lilly.id}"
-    click_button("Favorite Pet")
-    visit "/favorites"
-    click_on("Remove Favorite")
-    visit '/favorites'
-    expect(page).to_not have_content("#{@lilly.name}")
-    expect(page).to have_content("Number of Favorites: 0")
+      visit "/pets/#{@lilly.id}"
+      click_button("Favorite Pet")
+      visit "/favorites"
+      click_on("Remove Favorite")
+      visit '/favorites'
+      expect(page).to_not have_content("#{@lilly.name}")
+      expect(page).to have_content("Number of Favorites: 0")
     end
-  end
-  describe "As a visitor" do
+ 
     it "When I have favorited pets, and visit the index page, I can remove all favorited pets with one button" do
       visit "/pets/#{@lilly.id}"
       click_button("Favorite Pet")
@@ -58,5 +56,4 @@ RSpec.describe "On a pets show page," do
       expect(page).to have_content("There are no favorited pets to show!")
       expect(page).to have_content("Number of Favorites: 0")
     end
-  end
 end
