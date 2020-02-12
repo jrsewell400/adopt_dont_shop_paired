@@ -3,7 +3,6 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
     @shelters = Shelter.all
-    @favorite = Favorite.new(session[:favorites])
   end
 
   def new
@@ -15,9 +14,14 @@ class PetsController < ApplicationController
 
     pet = shelter.pets.create(strong_params)
 
-    pet.save
+    if pet.save
+      redirect_to "/shelters/#{shelter.id}/pets"
+      flash[:notice] = "Pet successfully created"
+    else
+      redirect_to "/shelters/#{shelter.id}/pets/new"
+      flash[:error] = pet.errors.full_messages.to_sentence
+    end
 
-    redirect_to "/shelters/#{shelter.id}/pets"
   end
 
   def show
@@ -32,16 +36,20 @@ class PetsController < ApplicationController
     pet = Pet.find(params[:id])
     pet.update(strong_params)
 
-    pet.save
-
-    redirect_to "/pets/#{pet.id}"
+    if pet.save
+      redirect_to "/pets/#{pet.id}"
+      flash[:notice] = "Pet successfully edited"
+    else
+      redirect_to "/pets/#{pet.id}/edit"
+      flash[:error] = pet.errors.full_messages.to_sentence
+    end
   end
 
   def destroy
     Pet.destroy(params[:id])
     if session[:favorites] && session[:favorites].include?(params[:id])
       session[:favorites].delete(params[:id])
-    end 
+    end
     redirect_to '/pets'
   end
 

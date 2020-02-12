@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "shelters index page", type: :feature do
-  before :each do 
+  before :each do
     @shelter_1 = Shelter.create(name: "Shelters 'r Us",
                                 address: "1042 N Marion St",
                                 city: "Denver",
@@ -15,7 +15,7 @@ RSpec.describe "shelters index page", type: :feature do
                              picture: "https://i.pinimg.com/474x/8b/f4/d4/8bf4d4c3062e2f1b719d2b9c22b671ab--dog-boarding-kennels-dog-kennels.jpg"
                             )
   end
-  
+
   it "has a link to create a new shelter" do
     visit "/shelters"
     have_current_path "/shelters"
@@ -53,5 +53,18 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content('Rabbitville')
     expect(page).to have_content('FL')
     expect(page).to have_content('12336')
+  end
+  
+  it "if I try to create a shelter and fail to fill out a form I see that forms attributes that I failed to fill out" do
+    visit '/shelters'
+    click_link 'New Shelter'
+    have_current_path "/shelters/new"
+    fill_in 'name', with: 'Edited Shelter Name'
+    fill_in 'address', with: 'Edited Shelter Address'
+    fill_in 'city', with: 'Edited Shelter City'
+    fill_in 'state', with: 'Edited Shelter State'
+    fill_in 'zip', with: ''
+    click_on('Create Shelter')
+    expect(page).to have_content("Zip can't be blank")
   end
 end

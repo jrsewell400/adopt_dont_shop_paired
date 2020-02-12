@@ -1,9 +1,9 @@
 class ApplicationsController < ApplicationController
 
   def new
-    @pets = Pet.all
     @pet_favorites = Array.new
-    @pets.each do |pet|
+    pets = Pet.all
+    pets.each do |pet|
       if session[:favorites] && session[:favorites].has_key?(pet.id.to_s)
         @pet_favorites << pet
       end

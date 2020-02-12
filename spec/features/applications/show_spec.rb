@@ -78,6 +78,7 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     click_on(@mojo.name)
     have_current_path "/pets/#{@mojo.id}"
   end
+
   it "on pets show page, I see a link to view all applications for this pet" do
     visit "/pets/#{@mojo.id}"
     click_on("View Applications")
@@ -85,11 +86,13 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     click_on(@app1.name)
     have_current_path "/application/#{@app1.id}"
   end
+
   it "When I visit a pets application page and there is no application for them, I see an message indicating just that" do
     visit "/pets/#{@lilly.id}"
     click_on("View Applications")
     expect(page).to have_content("This Pet has no applications yet.")
   end
+
   it "When I visit an applications show page there are links to approve the application" do
     visit "/application/#{@app1.id}"
     click_on("Approve #{@mojo.name}")
@@ -97,6 +100,7 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     expect(page).to have_content("Adoption Pending")
     expect(page).to have_content("Mojo Jojo is on hold for John Doe")
   end
+
   it "When a pet has more than one application for them and one has already been approved, you cannot approve any more applications" do
     visit "/application/#{@app1.id}"
     click_on("Approve #{@mojo.name}")
@@ -112,6 +116,7 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     visit "/pets/#{@mojo.id}"
     expect(page).to have_content("Adoptable")
   end
+
   it "As a visitor, if a shelter has approved applications, you can not delete that shelter" do
     visit "/application/#{@app1.id}"
     click_on("Approve #{@mojo.name}")
