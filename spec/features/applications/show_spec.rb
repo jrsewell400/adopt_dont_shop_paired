@@ -46,12 +46,24 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
                                 phone_number: "972 333-5444",
                                 description: "My name is Johnny, so my home is nice.")
 
+    @app2 = Application.create(name: "Johnny Bravo",
+                               address: "Bravo St",
+                               city: "Brova",
+                                state: "CA",
+                                zip: "10000",
+                                phone_number: "972 828-9080",
+                                description: "Do the Johnny Bravo!")
+
     @pet_app1 = ApplicationPet.create(application_id: @app1.id,
                                       pet_id: @harry.id)
 
     @pet_app2 = ApplicationPet.create(application_id: @app1.id,
                                       pet_id: @mojo.id)
+
+    @pet_app3 = ApplicationPet.create(application_id: @app2.id,
+                                      pet_id: @mojo.id)
     end
+
   it "I should see all of the applicant information" do
     visit "/application/#{@app1.id}"
     expect(page).to have_content(@app1.name)
@@ -85,6 +97,26 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     expect(page).to have_content("Adoption Pending")
     expect(page).to have_content("Mojo Jojo is on hold for John Doe")
   end
+  it "When a pet has more than one application for them and one has already been approved, you cannot approve any more applications" do
+    visit "/application/#{@app1.id}"
+    click_on("Approve #{@mojo.name}")
+    visit "/application/#{@app2.id}"
+    expect(page).to_not have_content("Approve #{@mojo.name}")
+    visit "/application/#{@app2.id}"
+    expect(page).to have_content(@app2.name)
+    visit "/application/#{@app1.id}"
+    expect(page).to_not have_content("Approve #{@mojo.name}")
+    click_on("Revoke #{@mojo.name}")
+    have_current_path "/application/#{@app1.id}"
+    expect(page).to have_content("Approve #{@mojo.name}")
+    visit "/pets/#{@mojo.id}"
+    expect(page).to have_content("Adoptable")
+  end
 end
 
-# And I see text on the page that says who this pet is on hold for (Ex: "On hold for John Smith", given John Smith is the name on the application that was just accepted)
+# When I click on the link to unapprove the application
+# I'm taken back to that applications show page
+# And I can see the button to approve the application for that pet again
+# When I go to that pets show page
+# I can see that the pets adoption status is now back to adoptable
+# And that pet is not on hold anymore

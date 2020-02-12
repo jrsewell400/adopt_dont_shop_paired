@@ -25,10 +25,15 @@ class ApplicationsController < ApplicationController
   end
 
   def update
-    pet = Pet.find(params[:id])
-    pet.update_column(:adopted, 'Adoption Pending')
     @application = Application.find(params[:app_id])
-    redirect_to "/pets/#{params[:id]}"
+    pet = Pet.find(params[:id])
+    if pet.adopted == 'Adoptable'
+      pet.update_column(:adopted, 'Adoption Pending')
+      redirect_to "/pets/#{params[:id]}"
+    else
+      pet.update_column(:adopted, 'Adoptable')
+      redirect_to "/application/#{params[:app_id]}"
+    end
   end
 
   def create
