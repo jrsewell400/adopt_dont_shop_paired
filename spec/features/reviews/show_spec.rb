@@ -16,9 +16,25 @@ RSpec.describe "individual shelter pages", type: :feature do
                             shelter_id: shelter_1.id
                            )
 
+    review2  = Review.create(title: "Great Shelter",
+                             rating: 5,
+                             content: "Love this place.",
+                             picture: "https://www.constructionspecifier.com/wp-content/uploads/2019/09/1.jpg",
+                             shelter_id: shelter_1.id
+                            )
+
     visit "/shelters/#{shelter_1.id}"
-    expect(page).to have_content(review1.title)
-    expect(page).to have_content(review1.content)
-    expect(page).to have_content(review1.rating)
+    within "#review-#{review1.id}" do
+      expect(page).to have_content(review1.title)
+      expect(page).to have_content(review1.content)
+      expect(page).to have_content(review1.rating)
+      expect(page).to have_css("img[src*='#{review1.picture}']")
+    end
+    within "#review-#{review2.id}" do
+      expect(page).to have_content(review2.title)
+      expect(page).to have_content(review2.content)
+      expect(page).to have_content(review2.rating)
+      expect(page).to have_css("img[src*='#{review2.picture}']")
+    end
   end
 end
