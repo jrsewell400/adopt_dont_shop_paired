@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "On a pets show page," do
+RSpec.describe "On a pets show page as a visitor," do
   before :each do
     @shelter_1 = Shelter.create(name:       "Shelters 'r Us",
                               address:       "1042 N Marion St",
@@ -34,26 +34,26 @@ RSpec.describe "On a pets show page," do
     expect(page).to have_content("Number of Favorites: 0")
   end
 
-  describe "As a visitor" do
-    it "When I favorite a pet, and visit the favorites index page I see a link to remove that pet from favorites" do
-      visit "/pets/#{@lilly.id}"
-      click_button("Favorite Pet")
-      visit "/favorites"
-      click_on("Remove Favorite")
-      visit '/favorites'
-      expect(page).to_not have_content("#{@lilly.name}")
-      expect(page).to have_content("Number of Favorites: 0")
-    end
+  
+  it "When I favorite a pet, and visit the favorites index page I see a link to remove that pet from favorites" do
+    visit "/pets/#{@lilly.id}"
+    click_button("Favorite Pet")
+    visit "/favorites"
+    click_on("Remove Favorite")
+    visit '/favorites'
+    expect(page).to_not have_content("#{@lilly.name}")
+    expect(page).to have_content("Number of Favorites: 0")
+  end
  
-    it "When I have favorited pets, and visit the index page, I can remove all favorited pets with one button" do
-      visit "/pets/#{@lilly.id}"
-      click_button("Favorite Pet")
-      visit "/pets/#{@mojo.id}"
-      click_button("Favorite Pet")
-      visit "/favorites"
-      click_button("Remove All Favorites")
-      have_current_path "/favorites"
-      expect(page).to have_content("There are no favorited pets to show!")
-      expect(page).to have_content("Number of Favorites: 0")
-    end
+  it "When I have favorited pets, and visit the index page, I can remove all favorited pets with one button" do
+    visit "/pets/#{@lilly.id}"
+    click_button("Favorite Pet")
+    visit "/pets/#{@mojo.id}"
+    click_button("Favorite Pet")
+    visit "/favorites"
+    click_button("Remove All Favorites")
+    have_current_path "/favorites"
+    expect(page).to have_content("There are no favorited pets to show!")
+    expect(page).to have_content("Number of Favorites: 0")
+  end
 end
