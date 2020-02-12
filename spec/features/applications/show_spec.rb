@@ -112,11 +112,10 @@ RSpec.describe 'As a visitor, when I go to an applications show page' do
     visit "/pets/#{@mojo.id}"
     expect(page).to have_content("Adoptable")
   end
+  it "As a visitor, if a shelter has approved applications, you can not delete that shelter" do
+    visit "/application/#{@app1.id}"
+    click_on("Approve #{@mojo.name}")
+    visit "/shelters/#{@shelter_2.id}"
+    expect(page).to_not have_button("Delete This Shelter")
+  end
 end
-
-# When I click on the link to unapprove the application
-# I'm taken back to that applications show page
-# And I can see the button to approve the application for that pet again
-# When I go to that pets show page
-# I can see that the pets adoption status is now back to adoptable
-# And that pet is not on hold anymore

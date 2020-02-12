@@ -11,7 +11,7 @@
 <h2>See reviews below:</h2>
   <p2>
     <% @reviews.each do |review| %>
-      <section id="review-<%= review.id %>">  
+      <section id="review-<%= review.id %>">
         <% if review.shelter_id == @shelter.id %>
           Title: <%= review.title %><br/>
           Content: <%= review.content %><br/>
@@ -31,5 +31,15 @@
     <%= link_to 'New Pet', "/shelters/#{@shelter.id}/pets/new" %><br/>
     <%= link_to 'Edit This Shelter', "/shelters/#{@shelter.id}/edit" %><br/>
     <%= link_to 'Return To Shelters Index Page', '/shelters' %><br/>
-    <%= button_to 'Delete', "/shelters/#{@shelter.id}", method: :delete %>
+    <% @shelter.pets.each do |pet| %>
+      <% if pet.adopted == 'Adoption Pending' %>
+        <% "Can not delete this shelter." %>
+        <% else %>
+        <%= button_to 'Delete', "/shelters/#{@shelter.id}", method: :delete %>
+      <% end %>
+    <% end %>
   </section>
+  <h3>Shelter Statistics:</h3>
+    <%= "Count of Pets: #{@shelter.count_of_pets} "%>
+    <%= "Average Rating: #{@shelter.avg_rating} "%>
+    <%= "Number of Applications: #{@shelter.num_apps} "%>
