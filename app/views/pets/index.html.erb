@@ -9,7 +9,11 @@
       Sex: <%= pet.sex %><br/>
       Shelter: <a href="/shelters/<%= pet.shelter_id %>"><%= @shelters.find(pet.shelter_id)[:name] %></a><br/>
       <%= link_to 'Update Pet', "/pets/#{pet.id}/edit" %>
-      <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
+      <% if !pet.applications.empty? %>
+        <%= "Can not delete pet" %>
+        <% else %>
+        <%= button_to 'Delete', "/pets/#{pet.id}", method: :delete %>
+      <% end %>
     </p><br/>
   </section>
 <% end %>
