@@ -10,7 +10,7 @@
 
 <h2>See reviews below:</h2>
   <p2>
-    <% @reviews.each do |review| %>
+    <% @shelter.reviews.each do |review| %>
       <section id="review-<%= review.id %>">
         <% if review.shelter_id == @shelter.id %>
           Title: <%= review.title %><br/>

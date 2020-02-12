@@ -8,7 +8,6 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
-    @reviews = Review.all
   end
 
   def create
@@ -29,7 +28,7 @@ class SheltersController < ApplicationController
     else
       redirect_to "/shelters/#{shelter.id}/edit"
       flash[:error] = shelter.errors.full_messages.to_sentence
-    end 
+    end
   end
 
   def edit
