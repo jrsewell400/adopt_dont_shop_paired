@@ -54,6 +54,7 @@ RSpec.describe "shelters index page", type: :feature do
     expect(page).to have_content('FL')
     expect(page).to have_content('12336')
   end
+  
   it "if I try to create a shelter and fail to fill out a form I see that forms attributes that I failed to fill out" do
     visit '/shelters'
     click_link 'New Shelter'

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "edit pets", type: :feature do
-  before :each do 
+  before :each do
     @shelter_1 = Shelter.create(name: "Maxxxx Shelter",
                                 address: "1042 N Marion St",
                                 city: "Denver",
@@ -23,7 +23,7 @@ RSpec.describe "edit pets", type: :feature do
                         sex: "Female",
                         shelter_id: @shelter_1.id
                        )
-  end 
+  end
 
   it "can edit a pet" do
     visit "/pets/#{@lilly.id}"
@@ -51,5 +51,17 @@ RSpec.describe "edit pets", type: :feature do
     expect(page).to have_content('909')
     expect(page).to have_content('Little White Dog')
     expect(page).to have_content('Male')
+  end
+
+  it "if I try to edit a pet and fail to fill out a form I see that forms attributes that I failed to fill out" do
+    visit "/pets"
+    click_link "Update Pet"
+    fill_in 'name', with: 'Trixie'
+    fill_in 'image', with: ''
+    fill_in 'description', with: 'Thats one pretty dog'
+    fill_in 'age', with: '6'
+    fill_in 'sex', with: 'Female'
+    click_on('Submit')
+    expect(page).to have_content("Image can't be blank")
   end
 end
