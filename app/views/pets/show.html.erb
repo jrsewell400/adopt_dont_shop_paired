@@ -21,7 +21,9 @@
   <%= link_to 'View Applications', "/application/#{@pet.id}/index" %>
   <% @pet.applications.each do |app| %>
     <% if @pet.adopted == "Adoption Pending" %>
-      <%= "#{@pet.name} is on hold for #{app.name}" %>
+      <%= link_to "#{@pet.name}", "/pets/#{@pet.id}" %>
+      <%= "is on hold for" %>
+      <%= link_to "#{app.name}", "application/#{app.id}" %>
     <% end %>
   <% end %>
 </p></br>
