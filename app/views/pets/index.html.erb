@@ -7,7 +7,7 @@
       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %></a></br>
       Age: <%= pet.age %><br/>
       Sex: <%= pet.sex %><br/>
-      Shelter: <a href="/shelters/<%= pet.shelter_id %>"><%= @shelters.find(pet.shelter_id)[:name] %></a><br/>
+      Shelter: <a href="/shelters/<%= pet.shelter_id %>"><%= pet.shelter_name %></a><br/>
       <%= link_to 'Update Pet', "/pets/#{pet.id}/edit" %>
       <% if !pet.applications.empty? %>
         <%= "Can not delete pet" %>
