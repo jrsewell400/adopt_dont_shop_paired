@@ -41,28 +41,28 @@ RSpec.describe "As a visitor," do
                        )
     end
 
-    it "I see a favorite indicator in my navigation bar." do
-        visit '/'
-        within('#nav') do
-            expect(page).to have_content("Number of Favorites:")
-        end
+  it "I see a favorite indicator in my navigation bar." do
+    visit '/'
+    within('#nav') do
+        expect(page).to have_content("Number of Favorites:")
+    end
 
-        visit '/shelters'
-        within('#nav') do
-            expect(page).to have_content("Number of Favorites:")
-        end
+    visit '/shelters'
+    within('#nav') do
+        expect(page).to have_content("Number of Favorites:")
+    end
 
-        visit '/pets'
-        within('#nav') do
-            expect(page).to have_content("Number of Favorites:")
-        end
+    visit '/pets'
+    within('#nav') do
+        expect(page).to have_content("Number of Favorites:")
+    end
 
-        visit '/'
-        click_on('Number of Favorites:')
-        expect(current_path).to eq('/favorites')
+    visit '/'
+    click_on('Number of Favorites:')
+    expect(current_path).to eq('/favorites')
   end
 
-  it "shows a count of pets in my favorite list." do 
+  it "shows a count of pets in my favorite list." do
     visit "/pets/#{@mojo.id}"
     click_button("Favorite Pet")
     within('#nav') do
