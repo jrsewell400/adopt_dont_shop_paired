@@ -23,7 +23,7 @@
     <% if @pet.adopted == "Adoption Pending" %>
       <%= link_to "#{@pet.name}", "/pets/#{@pet.id}" %>
       <%= "is on hold for" %>
-      <%= link_to "#{app.name}", "application/#{app.id}" %>
+      <%= link_to "#{app.name}", "/application/#{app.id}" %>
     <% end %>
   <% end %>
 </p></br>
