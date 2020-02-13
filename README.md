@@ -64,7 +64,7 @@ Use the instructions below in combination with your terminal in order to learn m
   - Use `rails routes` to get additional information about the routes that exist in a Rails application
 
 ## Link to Application in Production
-* https://dashboard.heroku.com/apps/whispering-falls-07428
+* https://whispering-falls-07428.herokuapp.com/
 
 ## Links to Contributor Github Profiles
 * Chase Gaddis:  https://github.com/cgaddis36
