@@ -8,7 +8,7 @@ The Adopt Don't Shop project is an interactive pet shelter website that allows a
 * create adoption applications and, ultimately, adopt pets.
 
 ## How to Clone Project to Local Machine
-Follow these instructions in your -nix command line terminal:
+Use the instructions below in combination with your terminal in order to learn more about this project:
 
   1. Clone this repository:
     ```git clone git@github.com:jrsewell400/adopt_dont_shop_paired.git```
